@@ -2,11 +2,5 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.cdnfonts.com/css/hackbot-free-trial');
 
-
-@font-face {
-    font-family: 'Hackbot Free Trial ';
-    src: local('Hackbot'), url('./font/HackbotFreeTrial.otf') format('opentype'), url('./font/HackbotFreeTrial.ttf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
