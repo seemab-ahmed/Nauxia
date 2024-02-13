@@ -10,9 +10,9 @@ export default function ExploreContainer() {
     <div className=' text-white justify-center font-jura text-3xl font-bold uppercase tracking-144 text-center'>the first step</div>
     <div className=' justify-center'><img src={nauxiaLogo} alt='Nauxia' width={50} /></div>
     <div>
-    <p className=' font-jura text-[24px] text-white text-center uppercase'>In a distant corner of the universe,</p>
-    <p className=' font-jura text-[24px] text-white text-center uppercase'>a group of intrepid humans embarked on a perilous journey,</p>
-    <p className=' font-jura text-[24px] text-white text-center px-[5%] uppercase'> leaving behind the familiar comforts of Earth to land on an enigmatic and uncharted planet.</p>
+    <p className=' font-jura text-[24px] text-white text-start sm:text-center uppercase'>In a distant corner of the universe,</p>
+    <p className=' font-jura text-[24px] text-white text-start sm:text-center uppercase'>a group of intrepid humans embarked on a perilous journey,</p>
+    <p className=' font-jura text-[24px] text-white text-start sm:text-center sm:px-[5%] uppercase'> leaving behind the familiar comforts of Earth to land on an enigmatic and uncharted planet.</p>
     </div>
     <img src={whiteBorder} alt="border" />
     <div className=' shadow-custom bg-white py-1 px-3 text-black font-jura uppercase text-[25px] font-bold'>

@@ -4,7 +4,7 @@ import footersmLogo from '../images/footersmlogo.svg';
 import FooterFlower from '../images/FooterFlower.svg';
 export default function Footer() {
   return (
-    <div style={{ backgroundImage: 'linear-gradient(180deg, #151515 0%, rgba(0, 0, 0, 0) 100%)' }} className="bg-black relative bg-cover bg-center bg-footerGradient py-[72px] px-[68px] flex m-auto gap-8">
+    <div style={{ backgroundImage: 'linear-gradient(180deg, #151515 0%, rgba(0, 0, 0, 0) 100%)' }} className="bg-black relative bg-cover bg-center bg-footerGradient py-[72px] px-5 md:px-[40px] lg:px-[68px] flex m-auto gap-8">
         <div className='flex w-full justify-between'>
            <div className='flex flex-col gap-5 justify-center'>
            <img width={133} src={logo} alt="border" />
@@ -18,7 +18,7 @@ export default function Footer() {
            </div>
            </div>
            <div>
-            <img src={FooterFlower} alt="Footer Flower" />
+            <img src={FooterFlower} alt="Footer Flower" className='hidden sm:block' />
            </div>
         </div>
     </div>
