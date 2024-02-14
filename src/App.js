@@ -1,22 +1,19 @@
 import React from "react";
-import LandingPage from "./pages/LandingPage/LandingPage";
-import Footer from "./component/Footer";
-import Navbar from "./component/Navbar";
-import bgImage from "./images/heroIImg.svg";
-import ExploreContainer from "./component/ExploreContainer";
+import HomePage from "./pages/HomePage/HomePage";
+import ExplorePage from "./pages/ExplorePage/ExplorePage";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
 function App() {
   return (
-    <div className="w-100 mx-auto">
-      <div
-        style={{ backgroundImage: `url(${bgImage})` }}
-        className="relative bg-cover bg-center h-screen"
-      >
-        <Navbar />
-        <LandingPage />
-      </div>
-      <ExploreContainer />
-      <Footer />
-    </div>
+    <>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
+    </>
   );
 }
 

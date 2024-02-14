@@ -1,8 +1,13 @@
 import React from "react";
 import logo from "../images/logo.svg";
 import nauxialogo from "../images/Union.svg";
-
+import { useNavigate } from 'react-router-dom';
 export default function Navbar() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    // Navigate to the desired route when the button is clicked
+    navigate('/');
+  };
   return (
     <nav
       className=" text-white flex justify-between items-center py-2 px-5 sm:px-10 backdrop-blur-sm"
@@ -10,11 +15,12 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div className="flex items-center">
-        <img src={logo} alt="Logo" className="hidden sm:block h-8 mr-2" />
+        <img src={logo} alt="Logo" className="hidden sm:block h-8 mr-2" onClick={handleClick} />
         <img
           src={nauxialogo}
           alt="Logo"
           className="block sm:hidden mr-2 h-[50px]"
+          onClick={handleClick}
         />
       </div>
 

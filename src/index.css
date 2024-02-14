@@ -78,3 +78,19 @@
     background: linear-gradient(88.16deg, #ff003d -32.4%, #0085ff 73.16%);
     z-index: 50;
   }
+
+
+  .fade-in-animation {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

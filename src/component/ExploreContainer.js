@@ -1,29 +1,17 @@
-import React, { useState } from "react";
-import bgLines from "../images/film.svg";
+import React from "react";
 import nauxiaLogo from "../images/Union.svg";
 import whiteBorder from "../images/whiteBorder.svg";
-
-import { Modal } from "./ui/modal/modal";
+import { useNavigate } from 'react-router-dom';
 
 export default function ExploreContainer() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const hanldeModalOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsOpen(false);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    // Navigate to the desired route when the button is clicked
+    navigate('/explore');
   };
   return (
     <>
       <div className="relative bg-cover bg-center bg-black py-[120px] flex items-center flex-col m-auto gap-8 px-10">
-        {/* <div className="absolute top-0 left-0 w-full h-full"></div>
-      <img
-        src={bgLines}
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-25"
-        alt="Overlay"
-      /> */}
         <div className=" text-white justify-center font-jura text-3xl font-bold uppercase tracking-144 text-center">
           the first step
         </div>
@@ -52,12 +40,12 @@ export default function ExploreContainer() {
         <img src={whiteBorder} alt="border" />
         <button
           className=" shadow-custom bg-white py-1 px-3 text-black font-jura uppercase text-[25px] font-bold"
-          onClick={hanldeModalOpen}
+          onClick={handleClick}
         >
           {`Explore >>`}
         </button>
       </div>
-      {isOpen && <Modal onClose={handleModalClose} />}
+      
     </>
   );
 }
