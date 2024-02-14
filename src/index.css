@@ -1,6 +1,80 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
-@import url('https://fonts.cdnfonts.com/css/hackbot-free-trial');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
 
+@font-face {
+  font-family: "Hackathon";
+  src: url("/public/font/HackbotFreeTrial.ttf") format("truetype"),
+    url("/public/font/HackbotFreeTrial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bg-gradient {
+  background: linear-gradient(88.16deg, #ff003d -32.4%, #0085ff 73.16%);
+  opacity: 70%;
+}
+
+.bg-back-gradient {
+  background: linear-gradient(to right, transparent, #0085ff);
+}
+.rounded-pipe {
+  width: 229px; /* Adjust the width as needed */
+  height: 5px; /* Adjust the height for a thicker or thinner appearance */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 133, 255, 0.5),
+    #0085ff,
+    rgba(0, 133, 255, 0.5)
+  );
+  /* border-radius: 25px 25px 25px 25px; */
+}
+
+@keyframes slideRight {
+  0% {
+    left: -229px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.slide-gradient {
+  animation: slideRight 10s linear infinite forwards;
+}
+
+.animation {
+  position: absolute;
+  width: 229px;
+  height: 13px;
+  left: 0;
+  bottom: 0;
+  animation: slideRight 10s linear infinite;
+}
+
+.animation_modal_1::before {
+  content: "";
+  position: absolute;
+  width: 108px;
+  height: 13px;
+  left: 0;
+  top: 35px;
+  opacity: 70%;
+  animation: slideRight 10s linear infinite;
+  background: linear-gradient(88.16deg, #ff003d -32.4%, #0085ff 73.16%);
+  z-index: 50;
+}
+
+.animation_modal_2::before {
+    content: "";
+    position: absolute;
+    width: 308px;
+    height: 13px;
+    left: 0;
+    top: 38px;
+    opacity: 70%;
+    animation: slideRight 10s linear infinite;
+    background: linear-gradient(88.16deg, #ff003d -32.4%, #0085ff 73.16%);
+    z-index: 50;
+  }

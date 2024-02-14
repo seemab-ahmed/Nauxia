@@ -8,13 +8,13 @@ module.exports = {
       transparentWhite: "rgba(255, 255, 255, 0.37)",
     },
     fontFamily: {
-      jura: ["Jura", "sans-serif"], // Add this line
-      hackbot: ["Hackbot Free Trial", "sans-serif"],
+      jura: ["Jura", "sans-serif"],
+      hackathon: ["Hackathon", "sans-serif"],
     },
     fontWeight: {
-      normal: 400, // Normal font weight
-      medium: 500, // Medium font weight
-      bold: 700, // Bold font weight
+      normal: 400,
+      medium: 500,
+      bold: 700,
     },
     extend: {
       screens: {
@@ -25,6 +25,10 @@ module.exports = {
         md: "920px",
         lg: "1166px",
         xl: "1366px",
+      },
+      fontFamily: {
+        jura: ["Jura", "sans-serif"],
+        hackathon: ['Hackathon', 'sans-serif']
       },
       backgroundColor: {
         footerGradient:
