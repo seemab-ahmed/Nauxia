@@ -95,6 +95,7 @@
   }
   
   .hoveredSlide {
+    max-width: 372px;
     transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
