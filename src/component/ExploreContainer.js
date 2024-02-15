@@ -1,17 +1,24 @@
 import React from "react";
 import nauxiaLogo from "../images/Union.svg";
+import bgLines from "../images/film.svg";
 import whiteBorder from "../images/whiteBorder.svg";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function ExploreContainer() {
   const navigate = useNavigate();
   const handleClick = () => {
     // Navigate to the desired route when the button is clicked
-    navigate('/explore');
+    navigate("/explore");
   };
   return (
-    <>
-      <div className="relative bg-cover bg-center bg-black py-[120px] flex items-center flex-col m-auto gap-8 px-10">
+    <div style={{backgroundImage: `url(${bgLines})`}}>
+      <div className="relative bg-cover bg-center bg-[rgba(0,0,0,0.9)] py-[120px] flex items-center flex-col m-auto gap-8 px-10" style={{backgroundImage: `url${bgLines}`}}>
+        {/* <div className="absolute top-0 left-0 w-full h-full"></div>
+        <img
+          src={bgLines}
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-25"
+          alt="Overlay"
+        /> */}
         <div className=" text-white justify-center font-jura text-3xl font-bold uppercase tracking-144 text-center">
           the first step
         </div>
@@ -45,7 +52,6 @@ export default function ExploreContainer() {
           {`Explore >>`}
         </button>
       </div>
-      
-    </>
+    </div>
   );
 }

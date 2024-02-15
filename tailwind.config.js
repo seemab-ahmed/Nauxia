@@ -5,7 +5,7 @@ module.exports = {
     colors: {
       black: "#000000",
       white: "#ffffff",
-      transparentWhite: "rgba(255, 255, 255, 0.37)",
+      transparentWhite: "rgba(255, 255, 255, 0.4)",
     },
     fontFamily: {
       jura: ["Jura", "sans-serif"],
