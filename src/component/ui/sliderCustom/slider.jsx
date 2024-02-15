@@ -14,6 +14,7 @@ import React, {
   useImperativeHandle,
   forwardRef,
 } from "react";
+import { Modal } from "../modal/modal";
 
 const images = [
   slideOne,
@@ -26,56 +27,72 @@ const images = [
   slideEight,
 ];
 
-export const CustomSlider = forwardRef((props, ref) => {
+export const CustomSlider = forwardRef(({ onImageClick }, ref) => {
   const sliderRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollStartX, setScrollStartX] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
+
   const [clicked, setClicked] = useState(new Array(images.length).fill(false));
 
   const handleImageClick = (index) => {
-    // Update the clicked state to true for the clicked image
     const updatedClicked = clicked.map((item, i) =>
       i === index ? true : item
     );
     setClicked(updatedClicked);
   };
 
-const scroll = (direction) => {
-    if (!sliderRef.current || sliderRef.current.children.length === 0) return;
-  
-    // Assuming each child (slide) has the same width and using the first child as reference
-    const slideWidth = sliderRef.current.firstChild.offsetWidth;
-    // Assuming a consistent gap defined by marginRight on each slide
-    const gap = parseInt(getComputedStyle(sliderRef.current.firstChild).marginRight, 10);
-    const fullSlideWidth = slideWidth + gap;
-  
-    // Determine the current slide index based on the scrollLeft position
-    const currentSlideIndex = Math.round(sliderRef.current.scrollLeft / fullSlideWidth);
-  
-    if (direction === "next") {
-      // Calculate the new scroll position to the next slide
-      const newScrollPosition = (currentSlideIndex + 1) * fullSlideWidth;
-      sliderRef.current.scrollTo({
-        left: newScrollPosition,
-        behavior: "smooth",
-      });
-    } else { // "prev"
-      // Calculate the new scroll position to the previous slide
-      // Ensure we don't scroll to a negative index
-      const newScrollPosition = Math.max(0, (currentSlideIndex - 1) * fullSlideWidth);
-      sliderRef.current.scrollTo({
-        left: newScrollPosition,
-        behavior: "smooth",
-      });
-    }
+  const handleOpenModal = (index) => {
+    setIsModelOpen(true);
+    setImageIndex(index)
   };
-  
 
-  useImperativeHandle(ref, () => ({
-    nextSlide: () => scroll("next"),
-    prevSlide: () => scroll("prev"),
-  }));
+  const handleCloseModal = () => {
+    setIsModelOpen(false);
+    handleImageClick(imageIndex);
+  };
+
+  const scroll = (direction) => {
+    if (!sliderRef.current || sliderRef.current.children.length === 0) return;
+
+    const slideWidth =
+      sliderRef.current.firstChild.offsetWidth +
+      parseInt(getComputedStyle(sliderRef.current.firstChild).marginRight, 10);
+    const currentScroll = sliderRef.current.scrollLeft;
+    const maxIndex = images.length - 1;
+
+    let newIndex = activeImageIndex;
+
+    if (direction === "next") {
+      newIndex =
+        activeImageIndex + 1 > maxIndex ? maxIndex : activeImageIndex + 1;
+    } else if (direction === "prev") {
+      newIndex = activeImageIndex - 1 < 0 ? 0 : activeImageIndex - 1;
+    }
+
+    const newScrollPosition = newIndex * slideWidth;
+    sliderRef.current.scrollTo({
+      left: newScrollPosition,
+      behavior: "smooth",
+    });
+
+    setActiveImageIndex(newIndex);
+  };
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      nextSlide: () => scroll("next"),
+      prevSlide: () => scroll("prev"),
+      activateImage: (index) => handleImageClick(index),
+      activateImageOnMobile: (index) => handleImageClick(index),
+      imageIndex: activeImageIndex,
+    }),
+    [activeImageIndex]
+  );
 
   const handleWheel = (e) => {
     if (sliderRef.current) {
@@ -85,7 +102,7 @@ const scroll = (direction) => {
   };
 
   const handleMouseDown = (e) => {
-    e.preventDefault(); // Prevent the default drag behavior
+    e.preventDefault();
     setIsDragging(true);
     setStartX(e.pageX - sliderRef.current.offsetLeft);
     setScrollStartX(sliderRef.current.scrollLeft);
@@ -102,35 +119,45 @@ const scroll = (direction) => {
     setIsDragging(false);
   };
 
-return (
-    <div className="overflow-hidden max-w-[1086px] mx-auto relative">
-      <div
-        ref={sliderRef}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseUp}
-        onMouseUp={handleMouseUp}
-        className={`flex gap-5 overflow-x-hidden pl-5 select-none ${isDragging ? "cursor-grabbing" : "cursor-pointer"} snap-x snap-mandatory`}
-      >
-        {images.map((img, index) => (
-          <div key={index} className="snap-center flex justify-center shrink-0 relative w-full md:w-auto md:calc((100% - (5 * 2rem)) / 3) flex-none">
-            <img
-              src={img}
-              alt={`Slide ${index}`}
-              className={`w-[362px] h-[475px] ${clicked[index] ? "" : "blur-lg"}`}
-              onClick={() => handleImageClick(index)}
-            />
-            {!clicked[index] && (
-              <div
-                className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center text-2xl font-hackathon text-white cursor-pointer bg-black bg-opacity-50"
-                onClick={() => handleImageClick(index)}
-              >
-                ?
-              </div>
-            )}
-          </div>
-        ))}
+  return (
+    <>
+      <div className="overflow-hidden max-w-[1120px] mx-auto relative">
+        <div
+          ref={sliderRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseUp}
+          onMouseUp={handleMouseUp}
+          className={`flex gap-5 overflow-x-hidden select-none ${
+            isDragging ? "cursor-grabbing" : "cursor-pointer"
+          } snap-x snap-mandatory`}
+        >
+          {images.map((img, index) => (
+            <div
+              key={index}
+              className="snap-center flex justify-center shrink-0 relative w-full md:w-auto md:calc((100% - (5 * 2rem)) / 3) flex-none"
+            >
+              <img
+                src={img}
+                alt={`Slide ${index}`}
+                className={`w-[362px] h-[475px] ${
+                  clicked[index] ? "" : "blur-lg"
+                }`}
+                onClick={() => (window.innerWidth > 920 && !clicked[index]) && handleOpenModal(index)}
+              />
+              {!clicked[index] && (
+                <div
+                  className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center text-2xl font-hackathon text-white cursor-pointer bg-black bg-opacity-50"
+                  onClick={() => window.innerWidth > 920 && handleOpenModal(index)}
+                >
+                  ?
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+      {isModelOpen && <Modal onClose={handleCloseModal} />}
+    </>
   );
 });
