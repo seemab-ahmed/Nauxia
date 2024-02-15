@@ -19,13 +19,14 @@ export default function ExploreContainer() {
           className="absolute top-0 left-0 w-full h-full object-cover opacity-25"
           alt="Overlay"
         /> */}
-        <div className=" text-white justify-center font-jura text-3xl font-bold uppercase tracking-144 text-center">
-          the first step
+        <div className=" text-white justify-center font-medium font-jura text-[36px] uppercase tracking-144 text-center">
+          the <br className="block md:hidden" /> first <br className="block md:hidden" />step
         </div>
+        <hr className=" text-transparentWhite w-[100%] absolute mt-[27.5px] opacity-45" />
         <div className=" justify-center">
-          <img src={nauxiaLogo} alt="Nauxia" width={50} />
+          <img src={nauxiaLogo} alt="Nauxia" width={100} />
         </div>
-        <div className="flex justify-center flex-col items-center">
+        <div className="flex justify-center flex-col items-center font-normal">
           <p className=" font-jura text-[24px] text-white text-start sm:text-center uppercase">
             In a distant corner of the universe,
           </p>
