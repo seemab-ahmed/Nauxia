@@ -62,6 +62,7 @@ export default function ExplorePage() {
             </div>
           </div>
         </div>
+        <hr className=" text-transparentWhite w-[100%]" />
         <div className="flex justify-end px-10 py-4 md:flex zero:hidden">
           <button
             className="uppercase text-white border border-transparentWhite py-1 px-2 font-jura font-bold"
