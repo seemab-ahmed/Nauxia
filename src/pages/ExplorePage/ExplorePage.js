@@ -10,11 +10,12 @@ import { useDeviceType } from "../../utils/util";
 export default function ExplorePage() {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const sliderRef = useRef(null);
-  const { desktop, mobile, tablet } = useDeviceType();
+  const { mobile, tablet } = useDeviceType();
 
   const handleOpenModal = () => {
     tablet && setIsModelOpen(true);
-    mobile && sliderRef.current?.activateImageOnMobile(sliderRef.current.imageIndex);
+    mobile &&
+      sliderRef.current?.activateImageOnMobile(sliderRef.current.imageIndex);
   };
 
   const handleCloseModal = () => {
@@ -29,7 +30,9 @@ export default function ExplorePage() {
     sliderRef.current?.prevSlide();
   };
 
-  const buttonClasses = `font-hackathon text-[28px] w-10 h-10 bg-opacity-80 ${mobile ? 'rounded-full' : ''} flex justify-center items-center`;
+  const buttonClasses = `font-hackathon text-[28px] w-10 h-10 bg-opacity-80 ${
+    mobile ? "rounded-full" : ""
+  } flex justify-center items-center`;
 
   return (
     <>

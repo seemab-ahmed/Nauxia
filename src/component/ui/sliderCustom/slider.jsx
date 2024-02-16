@@ -2,6 +2,9 @@ import slideOne from "../../../images/slide2.svg";
 import slideTwo from "../../../images/slideA2.png";
 import slideThree from "../../../images/sideA3.png";
 import slideFour from "../../../images/slideA4.png";
+import slideFive from "../../../images/slide6.svg";
+import slideSix from "../../../images/slide7.svg";
+import slideSeven from "../../../images/slide8.svg";
 import slideEight from "../../../images/slide9.svg";
 
 import React, {
