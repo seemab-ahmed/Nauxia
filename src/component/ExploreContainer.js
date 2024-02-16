@@ -7,20 +7,18 @@ import { useNavigate } from "react-router-dom";
 export default function ExploreContainer() {
   const navigate = useNavigate();
   const handleClick = () => {
-    // Navigate to the desired route when the button is clicked
     navigate("/explore");
   };
   return (
-    <div style={{backgroundImage: `url(${bgLines})`}}>
-      <div className="relative bg-cover bg-center bg-[rgba(0,0,0,0.9)] py-[120px] flex items-center flex-col m-auto gap-8 px-10" style={{backgroundImage: `url${bgLines}`}}>
-        {/* <div className="absolute top-0 left-0 w-full h-full"></div>
-        <img
-          src={bgLines}
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-25"
-          alt="Overlay"
-        /> */}
+    <div style={{ backgroundImage: `url(${bgLines})` }}>
+      <div
+        className="relative bg-cover bg-center bg-[rgba(0,0,0,0.9)] py-[120px] flex items-center flex-col m-auto gap-8 px-10"
+        style={{ backgroundImage: `url${bgLines}` }}
+      >
         <div className=" text-white justify-center font-medium font-jura text-[36px] uppercase tracking-144 text-center">
-          the <br className="block md:hidden" /> first <br className="block md:hidden" />step
+          the <br className="block md:hidden" /> first{" "}
+          <br className="block md:hidden" />
+          step
         </div>
         <hr className=" text-transparentWhite w-[100%] absolute mt-[27.5px] opacity-45" />
         <div className=" justify-center">

@@ -1,9 +1,7 @@
 import React, { useRef, useState } from "react";
 import Navbar from "../../component/Navbar";
-// import Slider from "../../component/ui/Slider/Slider";
 import { CustomSlider } from "../../component/ui/sliderCustom/slider";
 
-// import plusIcon from "../../assets/plus-icon.png";
 import { Modal } from "../../component/ui/modal/modal";
 import { useDeviceType } from "../../utils/util";
 
@@ -38,8 +36,8 @@ export default function ExplorePage() {
     <>
       <div className="bg-[#0B0B0B] relative bg-cover bg-center bg-footerGradient w-100 h-screen">
         <Navbar />
-        <div className="xlg:flex xlg:justify-center overflow-hidden">
-          <div className="xs:flex-col px-10 smd:py-20 mt-3 smd:border bg-[#d9d9d9] bg-opacity-[2%] smd:border-y-[#494949]  zero:py-4 zero:border-t zero:border-t-[#494949] border-opacity-20 flex md:flex-row justify-center md:w-[1220px]">
+        <div className="xlg:flex xlg:justify-center overflow-hidden pt-[68px]">
+          <div className="xs:flex-col px-10 smd:py-20 smd:border bg-[#d9d9d9] bg-opacity-[2%] smd:border-b-[#494949]  zero:py-4 border-opacity-20 flex md:flex-row justify-center md:w-[1220px]">
             <CustomSlider ref={sliderRef} />
 
             <div className="flex md:hidden gap-x-4 justify-center mt-10">
