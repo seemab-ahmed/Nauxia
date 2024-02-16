@@ -10,7 +10,7 @@ export default function Navbar() {
   };
   return (
     <nav
-      className=" text-white flex justify-between items-center py-2 px-5 sm:px-10 backdrop-blur-sm"
+      className=" text-white flex justify-between items-center py-2 px-5 sm:px-10 backdrop-blur-sm nav-border fixed w-[100%]"
       style={{ backgroundColor: `rgba(73, 73, 73, 0.02)` }}
     >
       {/* Logo */}

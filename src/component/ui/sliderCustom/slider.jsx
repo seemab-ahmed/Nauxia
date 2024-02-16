@@ -2,14 +2,10 @@ import slideOne from "../../../images/slide2.svg";
 import slideTwo from "../../../images/slideA2.png";
 import slideThree from "../../../images/sideA3.png";
 import slideFour from "../../../images/slideA4.png";
-import slideFive from "../../../images/slide6.svg";
-import slideSix from "../../../images/slide7.svg";
-import slideSeven from "../../../images/slide8.svg";
 import slideEight from "../../../images/slide9.svg";
 
 import React, {
   useState,
-  useEffect,
   useRef,
   useImperativeHandle,
   forwardRef,
@@ -133,7 +129,6 @@ export const CustomSlider = forwardRef((props, ref) => {
     const slideWidth =
       sliderRef.current.firstChild.offsetWidth +
       parseInt(getComputedStyle(sliderRef.current.firstChild).marginRight, 10);
-    const currentScroll = sliderRef.current.scrollLeft;
     const maxIndex = images.length - 1;
 
     let newIndex = activeImageIndex;
@@ -163,15 +158,16 @@ export const CustomSlider = forwardRef((props, ref) => {
       activateImageOnMobile: (index) => handleImageClick(index),
       imageIndex: activeImageIndex,
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [activeImageIndex]
   );
 
-  const handleWheel = (e) => {
-    if (sliderRef.current) {
-      e.preventDefault();
-      sliderRef.current.scrollLeft += e.deltaY * 2.5;
-    }
-  };
+  // const handleWheel = (e) => {
+  //   if (sliderRef.current) {
+  //     e.preventDefault();
+  //     sliderRef.current.scrollLeft += e.deltaY * 2.5;
+  //   }
+  // };
 
   const handleMouseDown = (e) => {
     e.preventDefault();

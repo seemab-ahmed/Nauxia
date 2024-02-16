@@ -39,7 +39,7 @@ module.exports = {
           "linear-gradient(88.16deg, #FF003D -32.4%, #0085FF 73.16%)",
       },
       letterSpacing: {
-        144: "1em", // Custom letter spacing value
+        144: "1.2em", // Custom letter spacing value
       },
       boxShadow: {
         custom:

@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import Navbar from "../../component/Navbar";
-import Slider from "../../component/ui/Slider/Slider";
+// import Slider from "../../component/ui/Slider/Slider";
 import { CustomSlider } from "../../component/ui/sliderCustom/slider";
 
-import plusIcon from "../../assets/plus-icon.png";
+// import plusIcon from "../../assets/plus-icon.png";
 import { Modal } from "../../component/ui/modal/modal";
 import { useDeviceType } from "../../utils/util";
 
