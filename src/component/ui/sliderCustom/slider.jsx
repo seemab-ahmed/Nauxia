@@ -17,17 +17,89 @@ import React, {
 import { Modal } from "../modal/modal";
 
 const images = [
-  slideOne,
-  slideTwo,
-  slideThree,
-  slideFour,
-  slideFive,
-  slideSix,
-  slideSeven,
-  slideEight,
+  {
+    src: slideOne,
+    title: `beginning`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
+  {
+    src: slideTwo,
+    title: `middle`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
+  {
+    src: slideThree,
+    title: `end`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
+  {
+    src: slideFour,
+    title: `beginning`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
+  {
+    src: slideFive,
+    title: `beginning`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
+  {
+    src: slideSix,
+    title: `beginning`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
+  {
+    src: slideSeven,
+    title: `beginning`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
+  {
+    src: slideEight,
+    title: `beginning`,
+    description: `<p>This new world, bathed in alien hues and strange landscapes, held
+    secrets and wonders beyond their wildest imagination.</p>
+    <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>`,
+  },
 ];
 
-export const CustomSlider = forwardRef(({ onImageClick }, ref) => {
+export const CustomSlider = forwardRef((props, ref) => {
   const sliderRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -47,7 +119,7 @@ export const CustomSlider = forwardRef(({ onImageClick }, ref) => {
 
   const handleOpenModal = (index) => {
     setIsModelOpen(true);
-    setImageIndex(index)
+    setImageIndex(index);
   };
 
   const handleCloseModal = () => {
@@ -119,6 +191,7 @@ export const CustomSlider = forwardRef(({ onImageClick }, ref) => {
     setIsDragging(false);
   };
 
+
   return (
     <>
       <div className="overflow-hidden max-w-[1120px] mx-auto relative">
@@ -132,23 +205,29 @@ export const CustomSlider = forwardRef(({ onImageClick }, ref) => {
             isDragging ? "cursor-grabbing" : "cursor-pointer"
           } snap-x snap-mandatory`}
         >
-          {images.map((img, index) => (
+          {images.map(({ src }, index) => (
             <div
               key={index}
               className="snap-center flex justify-center shrink-0 relative w-full md:w-auto md:calc((100% - (5 * 2rem)) / 3) flex-none"
             >
               <img
-                src={img}
+                src={src}
                 alt={`Slide ${index}`}
-                className={`w-[362px] h-[475px] ${
+                className={`w-[362px] h-[475px] zero:shadow-white-glow smd:shadow-none ${
                   clicked[index] ? "" : "blur-lg"
                 }`}
-                onClick={() => (window.innerWidth > 920 && !clicked[index]) && handleOpenModal(index)}
+                onClick={() =>
+                  window.innerWidth > 920 &&
+                  !clicked[index] &&
+                  handleOpenModal(index)
+                }
               />
               {!clicked[index] && (
                 <div
                   className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center text-2xl font-hackathon text-white cursor-pointer bg-black bg-opacity-50"
-                  onClick={() => window.innerWidth > 920 && handleOpenModal(index)}
+                  onClick={() =>
+                    window.innerWidth > 920 && handleOpenModal(index)
+                  }
                 >
                   ?
                 </div>
@@ -156,6 +235,23 @@ export const CustomSlider = forwardRef(({ onImageClick }, ref) => {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="flex justify-center smd:hidden">
+        {images.map(({title, description}, index) => (
+          <div
+            key={index}
+            className={`max-w-[362px] w-full max-h-[372px] overflow-y-auto px-8 border-t mt-[1px] border-[#494949] hide-scrollbar ${
+              activeImageIndex === index ? "block" : "hidden"
+            }`}
+            
+          >
+            <h1 className="font-bold font-jura tracking-[22px] leading-4 uppercase text-white my-[38px] text-center">
+              {title}
+            </h1>
+            <p className="font-medium text-sm leading-4 font-jura uppercase text-white mb-[28px]" dangerouslySetInnerHTML={{__html: description}}></p>
+          </div>
+        ))}
       </div>
       {isModelOpen && <Modal onClose={handleCloseModal} />}
     </>

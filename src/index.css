@@ -138,3 +138,39 @@
   transform: scale(1.05);
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes slideFadeInOut {
+  0%{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  99% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+.animation2 {
+  animation: slideFadeInOut 10s linear infinite;
+}

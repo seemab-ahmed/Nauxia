@@ -25,15 +25,15 @@ export default function ExploreContainer() {
         <div className=" justify-center">
           <img src={nauxiaLogo} alt="Nauxia" width={50} />
         </div>
-        <div className="flex justify-center flex-col items-center">
+        <div className="flex justify-center flex-col items-center w-full">
           <p className=" font-jura text-[24px] text-white text-start sm:text-center uppercase">
             In a distant corner of the universe,
           </p>
-          <div className="relative overflow-hidden w-fit">
+          <div className="relative overflow-hidden  w-full">
             <p className="font-jura text-[24px] text-white text-start sm:text-center uppercase">
               a group of intrepid humans embarked on a perilous journey,
             </p>
-            <div className="animation w-[229px] absolute top-[19px] left-0 flex flex-col">
+            <div className="animation2 w-[229px] absolute top-[19px] left-0 flex flex-col">
               <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
               <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
               <span className="w-full h-[5px] bg-gradient"></span>
