@@ -39,7 +39,7 @@ export default function ExplorePage() {
       <div className="bg-[#0B0B0B] relative bg-cover bg-center bg-footerGradient w-100 h-screen">
         <Navbar />
         <div className="xlg:flex xlg:justify-center overflow-hidden">
-          <div className="xs:flex-col px-10 smd:py-20 mt-3 smd:border bg-[#d9d9d9] bg-opacity-[2%] smd:border-y-[#494949]  zero:py-4 zero:border-t zero:border-t-[#494949] border-opacity-20 flex md:flex-row justify-center md:w-[1220px]">
+          <div className="xs:flex-col px-10 smd:py-20 mt-[70px]  zero:py-4 flex md:flex-row justify-center md:w-[1220px]">
             <CustomSlider ref={sliderRef} />
 
             <div className="flex md:hidden gap-x-4 justify-center mt-10">
@@ -64,6 +64,7 @@ export default function ExplorePage() {
             </div>
           </div>
         </div>
+        <hr className=" text-transparentWhite w-[100%]" />
         <div className="flex justify-end px-10 py-4 md:flex zero:hidden">
           <button
             className="uppercase text-white border border-transparentWhite py-1 px-2 font-jura font-bold"
