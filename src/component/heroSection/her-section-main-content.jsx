@@ -1,10 +1,12 @@
+import React from 'react';
+
 export const HeroSectionMaincontent = () => {
   return (
     <div className="relative bg-cover bg-center h-screen">
       <div className="flex h-full items-end">
         <div className="flex justify-between w-full">
-          <div className="flex-col gap-y-[22px] max-w-[488px] w-full uppercase hero_section-gradient leading-7 animate-bottom-to-top hidden md:flex">
-            <p className="text-white font-hackathon text-2xl font-normal">
+          <div className="flex-col gap-y-[22px] max-w-[488px] w-full uppercase hero_section-gradient leading-7 animate-bottom-to-top hidden md:flex">   
+             <p className="text-white font-hackathon text-2xl font-normal">
               Hello! This is Exelon 14. We need help immediately. Can anyone
               hear us?
             </p>
@@ -14,7 +16,7 @@ export const HeroSectionMaincontent = () => {
             </p>
             <p className="text-white font-hackathon text-2xl">
               What is this place? Is anyone around here??
-            </p>
+            </p> 
           </div>
           <div className="flex flex-col gap-y-[22px] max-w-[488px] w-full uppercase hero_section-gradient leading-7 animate-bottom-to-top md:hidden">
             <p className="text-white font-hackathon text-3xl ">

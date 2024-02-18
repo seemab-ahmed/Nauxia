@@ -19,8 +19,8 @@ export default function LandingPage() {
               What is this place? Is anyone around here??{" "}
             </p>
           </div>
-          <div className="max-w-[434px] w-full self-end">
-            <p className=" text-transparentWhite font-jura text-xl text-right font-bold">
+          <div className="max-w-[434px] w-full self-end uppercase">
+            <p className=" text-transparentWhite font-jura text-xl text-right font-bold uppercase">
               The Biggest <br />
               Interactive storytelling experience <br />
               on Solana. Are you with us here ?

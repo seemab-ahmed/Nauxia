@@ -34,7 +34,7 @@ module.exports = {
       },
       backgroundColor: {
         footerGradient:
-          "linear-gradient(180deg, #151515 0%, rgba(0, 0, 0, 0) 100%)",
+          "linear-gradient(to bottom, #ffffff 8%, #151515 100%)",
         highlightAnime:
           "linear-gradient(88.16deg, #FF003D -32.4%, #0085FF 73.16%)",
       },

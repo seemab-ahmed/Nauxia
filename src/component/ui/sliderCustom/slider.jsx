@@ -1,11 +1,5 @@
-import slideOne from "../../../images/slide2.svg";
-import slideTwo from "../../../images/slideA2.png";
-import slideThree from "../../../images/sideA3.png";
-import slideFour from "../../../images/slideA4.png";
-import slideFive from "../../../images/slide6.svg";
-import slideSix from "../../../images/slide7.svg";
-import slideSeven from "../../../images/slide8.svg";
-import slideEight from "../../../images/slide9.svg";
+import episode1 from "../../../assets/images/episode1.png";
+import episode2 from "../../../assets/images/episode2.png";
 
 import React, {
   useState,
@@ -17,7 +11,8 @@ import { Modal } from "../modal/modal";
 
 const images = [
   {
-    src: slideOne,
+    src: episode1,
+    isReleased: true,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -27,7 +22,8 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: slideTwo,
+    src: episode2,
+    isReleased: false,
     title: `middle`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -37,7 +33,8 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: slideThree,
+    blured: episode2,
+    isReleased: false,
     title: `end`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -47,7 +44,8 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: slideFour,
+    src: episode2,
+    isReleased: false,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -57,7 +55,8 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: slideFive,
+    src: episode2,
+    isReleased: false,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -67,7 +66,8 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: slideSix,
+    src: episode2,
+    isReleased: false,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -77,7 +77,8 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: slideSeven,
+    src: episode2,
+    isReleased: false,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -87,7 +88,8 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: slideEight,
+    src: episode2,
+    isReleased: false,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
@@ -190,10 +192,9 @@ export const CustomSlider = forwardRef((props, ref) => {
     setIsDragging(false);
   };
 
-
   return (
     <>
-      <div className="overflow-hidden max-w-[1120px] mx-auto relative">
+      <div className="overflow-hidden ml-[152px] relative">
         <div
           ref={sliderRef}
           onMouseDown={handleMouseDown}
@@ -204,51 +205,49 @@ export const CustomSlider = forwardRef((props, ref) => {
             isDragging ? "cursor-grabbing" : "cursor-pointer"
           } snap-x snap-mandatory`}
         >
-          {images.map(({ src }, index) => (
+          {images.map(({ src, isReleased }, index) => (
             <div
               key={index}
-              className="snap-center flex justify-center shrink-0 relative w-full md:w-auto md:calc((100% - (5 * 2rem)) / 3) flex-none"
+              className="snap-center flex justify-center shrink-0 relative w-full md:w-auto  flex-none"
             >
-              <img
-                src={src}
-                alt={`Slide ${index}`}
-                className={`w-[362px] h-[475px] zero:shadow-white-glow smd:shadow-none ${
-                  clicked[index] ? "" : "blur-lg"
+              <div
+                className={`relative flex justify-center items-center ${
+                  isReleased
+                    ? "border border-[rgba(255,255,255,0.2)] p-6"
+                    : "blur-"
                 }`}
-                onClick={() =>
-                  window.innerWidth > 920 &&
-                  !clicked[index] &&
-                  handleOpenModal(index)
-                }
-              />
-              {!clicked[index] && (
-                <div
-                  className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center text-2xl font-hackathon text-white cursor-pointer bg-black bg-opacity-50"
+              >
+                <img
+                  src={src}
+                  alt={`Slide ${index}`}
+                  className={`w-[362px] h-[475px] zero:shadow-white-glow smd:shadow-none`}
                   onClick={() =>
-                    window.innerWidth > 920 && handleOpenModal(index)
+                    window.innerWidth > 920 &&
+                    !isReleased &&
+                    handleOpenModal(index)
                   }
-                >
-                  ?
-                </div>
-              )}
+                />
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       <div className="flex justify-center smd:hidden">
-        {images.map(({title, description}, index) => (
+        {images.map(({ title, description }, index) => (
           <div
             key={index}
             className={`max-w-[362px] w-full max-h-[372px] overflow-y-auto px-8 border-t mt-[1px] border-[#494949] hide-scrollbar ${
               activeImageIndex === index ? "block" : "hidden"
             }`}
-            
           >
             <h1 className="font-bold font-jura tracking-[22px] leading-4 uppercase text-white my-[38px] text-center">
               {title}
             </h1>
-            <p className="font-medium text-sm leading-4 font-jura uppercase text-white mb-[28px]" dangerouslySetInnerHTML={{__html: description}}></p>
+            <p
+              className="font-medium text-sm leading-4 font-jura uppercase text-white mb-[28px]"
+              dangerouslySetInnerHTML={{ __html: description }}
+            ></p>
           </div>
         ))}
       </div>
