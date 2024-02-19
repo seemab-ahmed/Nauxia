@@ -37,10 +37,10 @@ export default function ExplorePage() {
       <div className="bg-[#0B0B0B] relative bg-cover bg-center w-100 h-screen">
         <Navbar className={'bg-[#0B0B0B]'} />
         <div className="xlg:flex xlg:justify-start w-full overflow-hidden ">
-          <div className="xs:flex-col mt-[130px] mb-[52px] flex md:flex-row justify-center w-full">
-            <CustomSlider ref={sliderRef} />
+          <div className="xs:flex-col zero:mt-[54px] desktop:mt-[130px] mb-[52px] flex desktop:flex-row justify-center w-full">
+            <CustomSlider ref={sliderRef} isMobile={mobile} />
 
-            <div className="flex md:hidden gap-x-4 justify-center mt-10">
+            <div className="flex desktop:hidden gap-x-4 justify-center mt-10">
               <button
                 onClick={handleBackClick}
                 className={`${buttonClasses} bg-[rgba(255,255,255,0.2)] text-white`}

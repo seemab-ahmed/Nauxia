@@ -1,5 +1,6 @@
 import episode1 from "../../../assets/images/episode1.png";
 import episode2 from "../../../assets/images/episode2.png";
+import episode3 from "../../../assets/images/episode3.png";
 
 import React, {
   useState,
@@ -33,7 +34,7 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    blured: episode2,
+    src: episode3,
     isReleased: false,
     title: `end`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
@@ -44,7 +45,7 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: episode2,
+    src: episode3,
     isReleased: false,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
@@ -55,40 +56,7 @@ const images = [
     was not by chance.</p>`,
   },
   {
-    src: episode2,
-    isReleased: false,
-    title: `beginning`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-  {
-    src: episode2,
-    isReleased: false,
-    title: `beginning`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-  {
-    src: episode2,
-    isReleased: false,
-    title: `beginning`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-  {
-    src: episode2,
+    src: episode3,
     isReleased: false,
     title: `beginning`,
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
@@ -100,7 +68,7 @@ const images = [
   },
 ];
 
-export const CustomSlider = forwardRef((props, ref) => {
+export const CustomSlider = forwardRef(({isMobile}, ref) => {
   const sliderRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -194,7 +162,7 @@ export const CustomSlider = forwardRef((props, ref) => {
 
   return (
     <>
-      <div className="overflow-hidden ml-[152px] relative">
+      <div className="overflow-hidden desktop:ml-[152px] relative">
         <div
           ref={sliderRef}
           onMouseDown={handleMouseDown}
@@ -208,12 +176,12 @@ export const CustomSlider = forwardRef((props, ref) => {
           {images.map(({ src, isReleased }, index) => (
             <div
               key={index}
-              className="snap-center flex justify-center shrink-0 relative w-full md:w-auto  flex-none"
+              className="snap-center flex justify-center shrink-0 relative w-full desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center ${
-                  isReleased
-                    ? "border border-[rgba(255,255,255,0.2)] p-6"
+                className={`relative flex justify-center items-center zero:py-10 ${
+                  isReleased && !isMobile
+                    ? "border border-[rgba(255,255,255,0.2)] smd:p-6"
                     : "blur-"
                 }`}
               >
@@ -223,7 +191,7 @@ export const CustomSlider = forwardRef((props, ref) => {
                   className={`w-[362px] h-[475px] zero:shadow-white-glow smd:shadow-none`}
                   onClick={() =>
                     window.innerWidth > 920 &&
-                    !isReleased &&
+                    isReleased &&
                     handleOpenModal(index)
                   }
                 />

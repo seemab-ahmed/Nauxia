@@ -24,6 +24,7 @@ module.exports = {
         sm: "660px",
         smd: "768px",
         md: "920px",
+        desktop: '1024px',
         lg: "1166px",
         xlg: '1240px',
         xl: "1366px",
@@ -45,7 +46,7 @@ module.exports = {
         custom:
           "0px -6.308411598205566px 37.850467681884766px 0px rgba(255, 255, 255, 0.4)",
         white: "0px 4px 30px 0px rgba(255, 255, 255, 0.9)",
-        'white-glow': '0 0 45px 5px rgba(255, 255, 255, 0.4);',
+        'white-glow': '0 0 40px 10px rgba(255, 255, 255, 0.2);',
         
       },
     },
