@@ -194,3 +194,5 @@
 .nav-border{
   border-bottom:1px solid rgb(250, 250, 250, 0.3);
 }
+
+.box-shadow-glow {box-shadow: '0 0 100px #ffffff'}

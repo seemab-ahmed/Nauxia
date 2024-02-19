@@ -179,7 +179,7 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
               className="snap-center flex justify-center shrink-0 relative w-full desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center zero:py-10 ${
+                className={`relative flex justify-center items-center zero:pt-10 smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
                   isReleased && !isMobile
                     ? "border border-[rgba(255,255,255,0.2)] smd:p-6"
                     : "blur-"
@@ -188,7 +188,7 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
                 <img
                   src={src}
                   alt={`Slide ${index}`}
-                  className={`w-[362px] h-[475px] zero:shadow-white-glow smd:shadow-none`}
+                  className={`zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:shadow-none border-b border-white`}
                   onClick={() =>
                     window.innerWidth > 920 &&
                     isReleased &&
@@ -201,11 +201,12 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
         </div>
       </div>
 
-      <div className="flex justify-center smd:hidden">
+      <div className="smd:hidden flex justify-center pb-[28px]">
+      <div className="flex justify-center bg-[#090909] max-w-[372px]">
         {images.map(({ title, description }, index) => (
           <div
             key={index}
-            className={`max-w-[362px] w-full max-h-[372px] overflow-y-auto px-8 border-t mt-[1px] border-[#494949] hide-scrollbar ${
+            className={`w-full max-w-[372px] overflow-y-auto px-8 mt-[1px] hide-scrollbar ${
               activeImageIndex === index ? "block" : "hidden"
             }`}
           >
@@ -218,6 +219,7 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
             ></p>
           </div>
         ))}
+      </div>
       </div>
       {isModelOpen && <Modal onClose={handleCloseModal} />}
     </>

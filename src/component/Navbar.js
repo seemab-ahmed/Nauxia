@@ -11,7 +11,7 @@ export default function Navbar({className}) {
   console.log(className)
   return (
     <nav
-      className={` text-white flex justify-between items-center py-3 px-5 sm:px-10 backdrop-blur-sm nav-border fixed w-[100%] ${className || 'bg-[rgba(73, 73, 73, 0.02)'}`}    >
+      className={` text-white flex justify-between items-center py-3 px-5 sm:px-10 backdrop-blur-sm nav-border z-50 fixed w-[100%] ${className || 'bg-[rgba(73, 73, 73, 0.02)'}`}    >
       {/* Logo */}
       <div className="flex items-center">
         <img src={logo} alt="Logo" className="hidden sm:block h-8 mr-2 cursor-pointer" onClick={handleClick} />
