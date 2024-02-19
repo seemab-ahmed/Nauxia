@@ -179,7 +179,7 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
               className="snap-center flex justify-center shrink-0 relative w-full desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center zero:pt-10 smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
+                className={`relative flex justify-center items-center zero:pt-10 desktop:pt-0 smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
                   isReleased && !isMobile
                     ? "border border-[rgba(255,255,255,0.2)] smd:p-6"
                     : "blur-"
@@ -188,7 +188,7 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
                 <img
                   src={src}
                   alt={`Slide ${index}`}
-                  className={`zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:shadow-none border-b border-white`}
+                  className={`zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:shadow-none zero:border-b zero:border-white smd:border-0`}
                   onClick={() =>
                     window.innerWidth > 920 &&
                     isReleased &&
