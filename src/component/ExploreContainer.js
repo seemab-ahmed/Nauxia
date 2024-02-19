@@ -39,9 +39,15 @@ export default function ExploreContainer() {
               <span className="w-full h-[5px] bg-gradient"></span>
             </div>
           </div>
-          <p className=" font-jura text-[24px] text-white text-justify sm:text-center sm:px-[5%] uppercase">
+          <p className="relative overflow-hidden font-jura text-[24px] text-white text-justify sm:text-center sm:px-[5%] uppercase">
             leaving behind the familiar comforts of Earth to land on an
             enigmatic and uncharted planet.
+            
+            <div className="animation3 w-[229px] absolute top-[54px] left-0 flex flex-col">
+              <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
+              <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
+              <span className="w-full h-[5px] bg-gradient"></span>
+            </div>
           </p>
         </div>
         <img src={whiteBorder} alt="border" />
