@@ -1,6 +1,6 @@
 import Navbar from "../Navbar";
 import bgImage from "../../images/film.svg";
-import mobileLogo from "../../images/Heormobilelogo.png";
+import mobileLogo from "../../images/giflogo.gif";
 
 export const HeroSectionMobile = () => {
   return (
