@@ -1,7 +1,7 @@
 import episode1 from "../../../assets/images/episode1.png";
 import episode2 from "../../../assets/images/episode2.png";
 import episode3 from "../../../assets/images/episode3.png";
-
+import nauxialogo from "../../../images/Union.svg";
 import React, {
   useState,
   useRef,
@@ -68,7 +68,7 @@ const images = [
   },
 ];
 
-export const CustomSlider = forwardRef(({isMobile}, ref) => {
+export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const sliderRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -135,12 +135,12 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
     [activeImageIndex]
   );
 
-  // const handleWheel = (e) => {
-  //   if (sliderRef.current) {
-  //     e.preventDefault();
-  //     sliderRef.current.scrollLeft += e.deltaY * 2.5;
-  //   }
-  // };
+  const handleWheel = (e) => {
+    if (sliderRef.current) {
+      e.preventDefault();
+      sliderRef.current.scrollLeft += e.deltaY * 2.5;
+    }
+  };
 
   const handleMouseDown = (e) => {
     e.preventDefault();
@@ -169,6 +169,7 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseUp}
           onMouseUp={handleMouseUp}
+          onWheel ={handleWheel}
           className={`flex gap-5 overflow-x-hidden select-none ${
             isDragging ? "cursor-grabbing" : "cursor-pointer"
           } snap-x snap-mandatory`}
@@ -179,12 +180,24 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
               className="snap-center flex justify-center shrink-0 relative w-full desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center zero:pt-10 desktop:pt-0 smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
+                className={`relative flex justify-center items-center zero:pt-10 smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
                   isReleased && !isMobile
                     ? "border border-[rgba(255,255,255,0.2)] smd:p-6"
                     : "blur-"
                 }`}
               >
+                {isReleased && <div className="flex flex-col absolute h-[450px] justify-between w-[100%] px-[40px]">
+                  <p className="font-jura font-bold text-white text-2xl uppercase">
+                    episode /
+                  </p>
+                  <div className="flex flex-row-reverse fade-in-animation">
+                    <img
+                      src={nauxialogo}
+                      alt="Logo"
+                      className="mr-2 h-[50px]"
+                    />
+                  </div>
+                </div>}
                 <img
                   src={src}
                   alt={`Slide ${index}`}
@@ -202,24 +215,24 @@ export const CustomSlider = forwardRef(({isMobile}, ref) => {
       </div>
 
       <div className="smd:hidden flex justify-center pb-[28px]">
-      <div className="flex justify-center bg-[#090909] max-w-[372px]">
-        {images.map(({ title, description }, index) => (
-          <div
-            key={index}
-            className={`w-full max-w-[372px] overflow-y-auto px-8 mt-[1px] hide-scrollbar ${
-              activeImageIndex === index ? "block" : "hidden"
-            }`}
-          >
-            <h1 className="font-bold font-jura tracking-[22px] leading-4 uppercase text-white my-[38px] text-center">
-              {title}
-            </h1>
-            <p
-              className="font-medium text-sm leading-4 font-jura uppercase text-white mb-[28px]"
-              dangerouslySetInnerHTML={{ __html: description }}
-            ></p>
-          </div>
-        ))}
-      </div>
+        <div className="flex justify-center bg-[#090909] max-w-[372px]">
+          {images.map(({ title, description }, index) => (
+            <div
+              key={index}
+              className={`w-full max-w-[372px] overflow-y-auto px-8 mt-[1px] hide-scrollbar ${
+                activeImageIndex === index ? "block" : "hidden"
+              }`}
+            >
+              <h1 className="font-bold font-jura tracking-[22px] leading-4 uppercase text-white my-[38px] text-center">
+                {title}
+              </h1>
+              <p
+                className="font-medium text-sm leading-4 font-jura uppercase text-white mb-[28px]"
+                dangerouslySetInnerHTML={{ __html: description }}
+              ></p>
+            </div>
+          ))}
+        </div>
       </div>
       {isModelOpen && <Modal onClose={handleCloseModal} />}
     </>
