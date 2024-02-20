@@ -26,11 +26,11 @@ export default function ExploreContainer() {
           <img src={nauxiaLogo} alt="Nauxia" width={100} />
         </div>
         <div className="flex justify-center flex-col items-center w-full">
-          <p className=" font-jura text-[24px] text-white text-justify  sm:text-center uppercase">
+          <p className=" font-jura text-[24px] text-white text-center uppercase">
             In a distant corner of the universe,
           </p>
           <div className="relative overflow-hidden  w-full">
-            <p className="font-jura text-[24px] text-white text-justify sm:text-center uppercase">
+            <p className="font-jura text-[24px] text-white text-center uppercase">
               a group of intrepid humans embarked on a perilous journey,
             </p>
             <div className="animation2 w-[229px] absolute top-[19px] left-0 flex flex-col">
@@ -39,7 +39,7 @@ export default function ExploreContainer() {
               <span className="w-full h-[5px] bg-gradient"></span>
             </div>
           </div>
-          <p className="relative overflow-hidden font-jura text-[24px] text-white text-justify sm:text-center sm:px-[5%] uppercase">
+          <p className="relative overflow-hidden font-jura text-[24px] text-white text-center sm:px-[5%] uppercase">
             leaving behind the familiar comforts of Earth to land on an
             enigmatic and uncharted planet.
             
