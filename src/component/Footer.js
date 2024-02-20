@@ -15,7 +15,7 @@ export default function Footer() {
           <img width={133} src={logo} alt="border" />
           <div className="flex flex-col gap-[40px]">
             <p className="font-jura text-[12px] lg:text-[14px] text-white uppercase">
-              A future world adventure saga explored through art and <br className="smd:block hidden" />
+              A future world adventure saga explored through art and <br className="xmd:block zero:hidden" />
               fictional storytelling.
             </p>
             <hr className=" text-transparentWhite " />
