@@ -169,7 +169,7 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseUp}
           onMouseUp={handleMouseUp}
-          onWheel ={handleWheel}
+          onWheel={handleWheel}
           className={`flex gap-5 overflow-x-hidden select-none ${
             isDragging ? "cursor-grabbing" : "cursor-pointer"
           } snap-x snap-mandatory`}
@@ -186,18 +186,19 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
                     : "blur-"
                 }`}
               >
-                {isReleased && <div className="flex flex-col absolute h-[450px] justify-between w-[100%] px-[40px]">
-                  <p className="font-jura font-bold text-white text-2xl uppercase">
-                    episode /
-                  </p>
-                  <div className="flex flex-row-reverse fade-in-animation">
+                {isReleased && (
+                  <>
+                    <p className="absolute zero:top-12 zero:left-4 smd:top-14 smd:left-14 desktop:top-8 desktop:left-10 font-jura font-bold text-white text-2xl uppercase">
+                      episode /
+                    </p>
+
                     <img
                       src={nauxialogo}
                       alt="Logo"
-                      className="mr-2 h-[50px]"
+                      className="mr-2 h-[50px] absolute zero:bottom-2 zero:right-2 smd:bottom-12 smd:right-10 desktop:bottom-8 desktop:right-8"
                     />
-                  </div>
-                </div>}
+                  </>
+                )}
                 <img
                   src={src}
                   alt={`Slide ${index}`}

@@ -11,6 +11,32 @@
   font-style: normal;
 }
 
+.bg-Bars {
+  /* background-color: black;
+  background: url('./images/film.svg');
+  background-size: cover; 
+  background-position: center;  */
+  position: relative;
+}
+
+
+
+@media (min-width: 1024px) {
+  .bg-Bars::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background: url('./images/film.svg');
+    background-size: cover; 
+    background-position: center;
+    z-index: 10;
+  }
+}
+
 .bg-gradient {
   background: linear-gradient(88.16deg, #ff003d -32.4%, #0085ff 73.16%);
   opacity: 70%;

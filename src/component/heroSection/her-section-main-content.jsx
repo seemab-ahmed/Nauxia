@@ -2,7 +2,7 @@ import React from 'react';
 import { TypingEffect } from './typingEffect';
 export const HeroSectionMaincontent = () => {
   return (
-    <div className="relative bg-cover bg-center h-screen ">
+    <div className="relative bg-cover bg-center h-[805px] ">
       <div className="flex h-full items-end">
         <div className="flex justify-between w-full">
           <div className="flex-col gap-y-[22px] max-w-[488px] w-full uppercase hero_section-gradient leading-7 hidden md:flex text-white font-hackathon text-2xl font-normal">   

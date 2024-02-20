@@ -1,6 +1,5 @@
 import React from "react";
 import nauxiaLogo from "../images/giflogo.gif";
-import bgLines from "../images/film.svg";
 import whiteBorder from "../images/whiteBorder.svg";
 import { useNavigate } from "react-router-dom";
 
@@ -10,10 +9,9 @@ export default function ExploreContainer() {
     navigate("/explore");
   };
   return (
-    <div className="relative bg-cover bg-[rgba(0,0,0,1)]" >
-    <img src={bgLines} alt="Nauxia" className="absolute h-[100%] opacity-20 max-w-[fit-content]"/>
+    <div className="bg-Bars relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] desktop:pb-0" >
       <div
-        className="py-[122px] flex items-center flex-col m-auto gap-[40px] px-[20px] md:px-[68px]"
+        className="pt-[122px] flex items-center flex-col m-auto gap-[40px] px-[20px]"
         // style={{ backgroundImage: `url(${bgLines})` }}
       >
         <div className=" text-white justify-center font-medium font-jura text-[36px] uppercase tracking-144 text-center">
@@ -53,7 +51,7 @@ export default function ExploreContainer() {
         </div>
         <img src={whiteBorder} alt="border" />
         <button
-          className=" shadow-custom bg-white py-1 px-3 text-black font-jura uppercase text-[25px] font-bold"
+          className="relative z-20 shadow-custom bg-white py-1 px-3 text-black font-jura uppercase text-[25px] font-bold"
           onClick={handleClick}
         >
           {`Explore >>`}

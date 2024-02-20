@@ -10,7 +10,7 @@ export const HeroSectionMobile = () => {
     >
       <div className="relative z-10">
         <Navbar />
-        <div className=" bg-black justify-center flex items-center h-[100vh]">
+        <div className=" bg-black justify-center flex items-center h-[802px]">
         <img src={mobileLogo} alt="Logo" />
         </div>
       </div>

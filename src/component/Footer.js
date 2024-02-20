@@ -6,8 +6,7 @@ export default function Footer() {
   return (
     <div
       style={{
-        backgroundImage:
-          "linear-gradient(180deg, #151515 0%, rgba(0, 0, 0, 0) 100%)",
+        background: 'linear-gradient(to bottom, #151515 0%, #151515 20%, #000000 50%, #000000 100%)',
       }}
       className="bg-black relative bg-cover bg-center bg-footerGradient py-[70px] smd:py-0 sm:pt-[15px] pl-5 md:pl-[40px] lg:pl-[68px] flex m-auto gap-8"
     >
