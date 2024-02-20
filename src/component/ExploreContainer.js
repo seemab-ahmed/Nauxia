@@ -14,10 +14,9 @@ export default function ExploreContainer() {
         className="pt-[122px] flex items-center flex-col m-auto gap-[40px] px-[20px]"
         // style={{ backgroundImage: `url(${bgLines})` }}
       >
-        <div className=" text-white justify-center font-medium font-jura text-[36px] uppercase tracking-144 text-center">
-          the <br className="block md:hidden" /> first{" "}
-          <br className="block md:hidden" />
-          step
+        <div className=" text-white justify-center font-medium font-jura text-[36px] tracking-144 ml-[1.2em] uppercase text-center">
+          {"the"}<br className="block smd:hidden" />{"first"}
+          <br className="block smd:hidden" />{"step"}
         </div>
         <hr className=" text-transparentWhite w-[100%] absolute mt-[27.5px] opacity-45" />
        <div className="flex flex-col gap-[35px] items-center">
@@ -25,11 +24,11 @@ export default function ExploreContainer() {
           <img src={nauxiaLogo} alt="Nauxia" width={150} />
         </div>
         <div className="flex justify-center flex-col items-center w-full">
-          <p className=" font-jura text-[24px] text-white text-center uppercase">
+          <p className=" font-jura text-[28px] text-white text-center uppercase">
             In a distant corner of the universe,
           </p>
           <div className="relative overflow-hidden  w-full">
-            <p className="font-jura text-[24px] text-white text-center uppercase">
+            <p className="font-jura text-[28px] text-white text-center uppercase">
               a group of intrepid humans embarked on a perilous journey,
             </p>
             <div className="animation2 w-[229px] absolute top-[19px] left-0 flex flex-col">
@@ -38,7 +37,7 @@ export default function ExploreContainer() {
               <span className="w-full h-[5px] bg-gradient"></span>
             </div>
           </div>
-          <p className="relative overflow-hidden font-jura text-[24px] text-white text-center sm:px-[5%] uppercase">
+          <p className="relative overflow-hidden font-jura text-[28px] text-white text-center sm:px-[5%] uppercase">
             leaving behind the familiar comforts of Earth to land on an
             enigmatic and uncharted planet.
             

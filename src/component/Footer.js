@@ -8,14 +8,14 @@ export default function Footer() {
       style={{
         background: 'linear-gradient(to bottom, #151515 0%, #151515 20%, #000000 50%, #000000 100%)',
       }}
-      className="bg-black relative bg-cover bg-center bg-footerGradient py-[70px] smd:py-0 sm:pt-[15px] pl-5 md:pl-[40px] lg:pl-[68px] flex m-auto gap-8"
+      className="bg-black relative bg-cover bg-center bg-footerGradient py-[70px] smd:py-0 sm:pt-[15px] pl-5 smd:pl-[40px] lg:pl-[68px] flex m-auto gap-8"
     >
       <div className="flex w-full justify-between">
         <div className="flex flex-col gap-[24px] justify-center">
           <img width={133} src={logo} alt="border" />
           <div className="flex flex-col gap-[40px]">
             <p className="font-jura text-[12px] lg:text-[14px] text-white uppercase">
-              A future world adventure saga explored through art and <br />
+              A future world adventure saga explored through art and <br className="smd:block hidden" />
               fictional storytelling.
             </p>
             <hr className=" text-transparentWhite " />
