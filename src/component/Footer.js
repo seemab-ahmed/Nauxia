@@ -8,7 +8,7 @@ export default function Footer() {
       style={{
         background: 'linear-gradient(to bottom, #151515 0%, #151515 20%, #000000 50%, #000000 100%)',
       }}
-      className="bg-black relative bg-cover bg-center bg-footerGradient py-[70px] smd:py-0 sm:pt-[15px] pl-5 smd:pl-[40px] lg:pl-[68px] flex m-auto gap-8"
+      className="bg-black relative bg-cover bg-center bg-footerGradient py-[70px] smd:py-0 sm:pt-[15px] pl-3 smd:pl-[40px] lg:pl-[68px] flex m-auto gap-8"
     >
       <div className="flex w-full justify-between">
         <div className="flex flex-col gap-[24px] justify-center">
