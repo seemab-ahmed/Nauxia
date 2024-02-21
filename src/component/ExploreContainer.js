@@ -17,7 +17,6 @@ export default function ExploreContainer() {
           {"the"}<span className="zero:hidden desktop:inline">&nbsp;</span><br className="block desktop:hidden" />{"first"}<span className="zero:hidden desktop:inline">&nbsp;</span>
           <br className="block desktop:hidden" />{"step"}
         </div>
-        <hr className=" text-transparentWhite w-[100%] absolute mt-[27.5px] opacity-45" />
        <div className="flex flex-col gap-[35px] items-center">
        <div className=" justify-center">
           <img src={nauxiaLogo} alt="Nauxia" width={150} />

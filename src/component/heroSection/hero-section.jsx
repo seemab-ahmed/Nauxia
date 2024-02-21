@@ -7,7 +7,7 @@ export const HeroSection = () => {
   return (
     <div
       style={{ backgroundImage: `url(${bgImage})` }}
-      className="relative bg-no-repeat bg-center bg-cover h-full w-full"
+      className="relative bg-no-repeat bg-center bg-cover h-[100vh] w-full"
     >
       {/* <img src={bgImage} className="absolute top-0" /> */}
       <div
