@@ -273,3 +273,31 @@
 .spacing {
   margin-right: 1.2em; /* Or 1.2em */
 }
+.container-fluid .blue-row {
+  background-color: #03a9f4;
+  width: 100%;
+  margin: auto;
+}
+
+.container-fluid .blue-row h3 {
+  color: white;
+  font-size: 39px;
+  text-align: center;
+  vertical-align: center;
+  padding: 40px;
+  font-weight: bold;
+}
+.moving-arrow {
+  display: inline-block;
+  color: white;
+  animation: moveArrow 2s infinite alternate; /* Adjust animation duration as needed */
+}
+
+@keyframes moveArrow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(60%); /* Adjust the percentage as needed to control the distance the arrow moves */
+  }
+}

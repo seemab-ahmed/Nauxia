@@ -2,6 +2,7 @@ import episode1 from "../../../assets/images/episode1.png";
 import episode2 from "../../../assets/images/episode2.png";
 import episode3 from "../../../assets/images/episode3.png";
 import nauxialogo from "../../../images/Union.svg";
+import arrow from '../../../assets/warrow.png.png';
 import React, {
   useState,
   useRef,
@@ -18,6 +19,10 @@ const images = [
     description: `<p>This new world, bathed in alien hues and strange landscapes, held
     secrets and wonders beyond their wildest imagination.</p>
     <br/>
+    <p>As they forged connections with the planet's indigenous beings and
+    delved deeper into its mysteries, they discovered that their arrival
+    was not by chance.</p>
+    <br />
     <p>As they forged connections with the planet's indigenous beings and
     delved deeper into its mysteries, they discovered that their arrival
     was not by chance.</p>`,
@@ -209,6 +214,8 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
                     handleOpenModal(index)
                   }
                 />
+                {isReleased && <div className="absolute top-[70px] shadow-white-glow zero:w-[372px] zero:h-[332px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:hidden"></div>}
+                <span className="moving-arrow bg-red absolute zero:bottom-0 zero:right-[20px] smd:bottom-[42px] smd:right-[50px] desktop:hidden"><img src={arrow} alt="arrow icon" width={24} height={24} /></span>
               </div>
             </div>
           ))}
@@ -220,7 +227,7 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
           {images.map(({ title, description }, index) => (
             <div
               key={index}
-              className={`w-full max-w-[372px] overflow-y-auto px-8 mt-[1px] hide-scrollbar ${
+              className={`w-full max-h-[276px] max-w-[372px] overflow-y-auto px-8 mt-[1px] hide-scrollbar ${
                 activeImageIndex === index ? "block" : "hidden"
               }`}
             >
