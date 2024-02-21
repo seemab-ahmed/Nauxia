@@ -182,11 +182,11 @@
     opacity: 1;
   }  
   40% {
-    transform: translateX(39vw);
+    transform: translateX(57vw);
     opacity: 1;
   }
   60% {
-    transform: translateX(39vw);
+    transform: translateX(57vw);
     opacity: 1;
   }
   90% {
@@ -215,11 +215,11 @@
     opacity: 1;
   }
   40%{
-    transform: translateX(25vw);
+    transform: translateX(36vw);
     opacity: 1;
   }
   50%{
-    transform: translateX(25vw);
+    transform: translateX(36vw);
     opacity: 1;
   }
   80% {

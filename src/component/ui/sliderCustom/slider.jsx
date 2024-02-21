@@ -180,7 +180,7 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
               className="snap-center flex justify-center shrink-0 relative w-full desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center zero:pt-10 smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
+                className={`relative flex justify-center items-center  ${isReleased ? 'zero:pt-10': 'pt-0'} smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
                   isReleased && !isMobile
                     ? "border border-[rgba(255,255,255,0.2)] smd:p-6"
                     : "blur-"

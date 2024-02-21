@@ -9,14 +9,13 @@ export default function ExploreContainer() {
     navigate("/explore");
   };
   return (
-    <div className="bg-Bars relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] desktop:pb-0" >
+    <div className="bg-Bars relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] desktop:py-20" >
       <div
-        className="pt-[122px] flex items-center flex-col m-auto gap-[40px] px-[20px]"
-        // style={{ backgroundImage: `url(${bgLines})` }}
+        className="flex items-center flex-col m-auto gap-[40px] px-[20px]"
       >
         <div className=" text-white justify-center font-medium font-jura text-[36px] tracking-144 ml-[1.2em] uppercase text-center">
-          {"the"}<br className="block smd:hidden" />{"first"}
-          <br className="block smd:hidden" />{"step"}
+          {"the"}<span className="zero:hidden desktop:inline">&nbsp;</span><br className="block desktop:hidden" />{"first"}<span className="zero:hidden desktop:inline">&nbsp;</span>
+          <br className="block desktop:hidden" />{"step"}
         </div>
         <hr className=" text-transparentWhite w-[100%] absolute mt-[27.5px] opacity-45" />
        <div className="flex flex-col gap-[35px] items-center">
