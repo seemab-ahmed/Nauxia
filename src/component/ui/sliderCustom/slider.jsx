@@ -214,7 +214,7 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
               >
                 {isReleased && (
                   <>
-                    <p className="absolute zero:top-12 zero:left-4 smd:top-14 smd:left-14 desktop:top-8 desktop:left-10 font-jura font-bold text-white text-2xl uppercase">
+                    <p className="absolute zero:top-12 zero:left-4 smd:top-[70px] smd:left-14 desktop:top-8 desktop:left-10 font-jura font-bold text-white text-2xl uppercase">
                       episode /
                     </p>
 
