@@ -5,7 +5,7 @@ export const Modal = ({ onClose }) => {
     <Backdrop onClose={onClose}>
       <div className="rounded-lg bg-transparent p-[30px]  max-w-[1512px] h-[781px] w-full">
         <div className="text-white flex flex-col items-center justify- h-full">
-          <button onClick={onClose} className="self-end">
+          <button onClick={onClose} className="self-end pt-20 pr-20">
             <img src={crossIcon} alt="cross icon" width={50} height={50} />
           </button>
           <div className="flex flex-col justify-center items-center max-w-[721px] h-[347px] w-full mt-[118px] uppercase">

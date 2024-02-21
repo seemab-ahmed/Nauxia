@@ -1,77 +1,18 @@
 import episode1 from "../../../assets/images/episode1.png";
+import episode1Mobile from "../../../images/mobile-active-slide.png";
 import episode2 from "../../../assets/images/episode2.png";
 import episode3 from "../../../assets/images/episode3.png";
 import nauxialogo from "../../../images/Union.svg";
 import arrow from '../../../assets/warrow.png.png';
 import React, {
   useState,
+  useEffect,
   useRef,
   useImperativeHandle,
   forwardRef,
 } from "react";
 import { Modal } from "../modal/modal";
 
-const images = [
-  {
-    src: episode1,
-    isReleased: true,
-    title: `beginning`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>
-    <br />
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-  {
-    src: episode2,
-    isReleased: false,
-    title: `middle`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-  {
-    src: episode3,
-    isReleased: false,
-    title: `end`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-  {
-    src: episode3,
-    isReleased: false,
-    title: `beginning`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-  {
-    src: episode3,
-    isReleased: false,
-    title: `beginning`,
-    description: `<p>This new world, bathed in alien hues and strange landscapes, held
-    secrets and wonders beyond their wildest imagination.</p>
-    <br/>
-    <p>As they forged connections with the planet's indigenous beings and
-    delved deeper into its mysteries, they discovered that their arrival
-    was not by chance.</p>`,
-  },
-];
 
 export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const sliderRef = useRef(null);
@@ -82,8 +23,88 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 
-  const [clicked, setClicked] = useState(new Array(images.length).fill(false));
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    // Function to update window width state
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // Event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array means this effect runs only once after component mount
+
+  // Choose background image based on window width
+
+  const images = [
+    {
+      src: windowWidth > 768 ? episode1 : episode1Mobile,
+      isReleased: true,
+      title: `beginning`,
+      description: `<p>This new world, bathed in alien hues and strange landscapes, held
+      secrets and wonders beyond their wildest imagination.</p>
+      <br/>
+      <p>As they forged connections with the planet's indigenous beings and
+      delved deeper into its mysteries, they discovered that their arrival
+      was not by chance.</p>
+      <br />
+      <p>As they forged connections with the planet's indigenous beings and
+      delved deeper into its mysteries, they discovered that their arrival
+      was not by chance.</p>`,
+    },
+    {
+      src: episode2,
+      isReleased: false,
+      title: `middle`,
+      description: `<p>This new world, bathed in alien hues and strange landscapes, held
+      secrets and wonders beyond their wildest imagination.</p>
+      <br/>
+      <p>As they forged connections with the planet's indigenous beings and
+      delved deeper into its mysteries, they discovered that their arrival
+      was not by chance.</p>`,
+    },
+    {
+      src: episode3,
+      isReleased: false,
+      title: `end`,
+      description: `<p>This new world, bathed in alien hues and strange landscapes, held
+      secrets and wonders beyond their wildest imagination.</p>
+      <br/>
+      <p>As they forged connections with the planet's indigenous beings and
+      delved deeper into its mysteries, they discovered that their arrival
+      was not by chance.</p>`,
+    },
+    {
+      src: episode3,
+      isReleased: false,
+      title: `beginning`,
+      description: `<p>This new world, bathed in alien hues and strange landscapes, held
+      secrets and wonders beyond their wildest imagination.</p>
+      <br/>
+      <p>As they forged connections with the planet's indigenous beings and
+      delved deeper into its mysteries, they discovered that their arrival
+      was not by chance.</p>`,
+    },
+    {
+      src: episode3,
+      isReleased: false,
+      title: `beginning`,
+      description: `<p>This new world, bathed in alien hues and strange landscapes, held
+      secrets and wonders beyond their wildest imagination.</p>
+      <br/>
+      <p>As they forged connections with the planet's indigenous beings and
+      delved deeper into its mysteries, they discovered that their arrival
+      was not by chance.</p>`,
+    },
+  ];
+  
+  const [clicked, setClicked] = useState(new Array(images.length).fill(false));
   const handleImageClick = (index) => {
     const updatedClicked = clicked.map((item, i) =>
       i === index ? true : item

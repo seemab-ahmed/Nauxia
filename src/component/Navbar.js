@@ -5,10 +5,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Navbar({className}) {
   const navigate = useNavigate();
   const handleClick = () => {
-    // Navigate to the desired route when the button is clicked
     navigate('/');
   };
-  console.log(className)
   return (
     <nav
       className={` text-white flex justify-between items-center py-0 sm:py-4 px-5 sm:px-10 backdrop-blur-sm nav-border z-50 fixed w-[100%] ${className || 'bg-[rgba(73, 73, 73, 0.02)'}`}    >

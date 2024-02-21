@@ -35,10 +35,10 @@ export default function ExplorePage() {
 
   return (
     <>
-      <div className="bg-black relative bg-cover bg-center w-100 h-screen">
+      <div className="bg-black relative bg-cover bg-center w-100 h-[100vh] overflow-auto md:overflow-hidden">
         <Navbar className={'bg-[#0B0B0B]'} />
-        <div className="xlg:flex xlg:justify-start w-full overflow-hidden bg-black">
-          <div className="xs:flex-col zero:mt-[54px] smd:mt-[130px] desktop:mt-[130px] desktop:mb-[52px] flex desktop:flex-row justify-center w-full">
+        <div className="xlg:flex xlg:justify-start w-full bg-black h-[90vh]">
+          <div className="xs:flex-col zero:mt-[54px] smd:mt-[130px] desktop:mt-[100px] desktop:mb-[52px] flex justify-center w-full">
             <CustomSlider ref={sliderRef} isMobile={mobile} />
 
             <div className="flex desktop:hidden gap-x-4 justify-center smd:pt-[39px] zero:pb-[8px]">
