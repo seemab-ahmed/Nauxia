@@ -9,7 +9,7 @@ export default function ExploreContainer() {
     navigate("/explore");
   };
   return (
-    <div className="bg-Bars relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] desktop:py-20" >
+    <div className="bg-Bars relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] py-20" >
       <div
         className="flex items-center flex-col m-auto gap-[40px] px-[20px]"
       >
