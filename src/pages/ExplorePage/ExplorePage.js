@@ -5,7 +5,6 @@ import { CustomSlider } from "../../component/ui/sliderCustom/slider";
 import { Modal } from "../../component/ui/modal/modal";
 import { useDeviceType } from "../../utils/util";
 
-
 export default function ExplorePage() {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const sliderRef = useRef(null);
@@ -35,9 +34,9 @@ export default function ExplorePage() {
 
   return (
     <>
-      <div className="bg-black relative bg-cover bg-center w-100 h-[100vh] overflow-auto md:overflow-hidden">
-        <Navbar className={'bg-[#0B0B0B]'} />
-        <div className="xlg:flex xlg:justify-start w-full bg-black h-[90vh]">
+      <div className="bg-black relative bg-cover bg-center w-100 h-[100vh] overflow-auto md:overflow-hidden desktop:flex desktop:flex-col desktop:justify-between">
+        <Navbar className={"bg-[#0B0B0B]"} />
+        <div className="desktop:flex desktop:justify-start items-center h-full w-full bg-black">
           <div className="xs:flex-col zero:mt-[54px] smd:mt-[130px] desktop:mt-[100px] desktop:mb-[52px] flex justify-center w-full">
             <CustomSlider ref={sliderRef} isMobile={mobile} />
 
@@ -46,29 +45,37 @@ export default function ExplorePage() {
                 onClick={handleBackClick}
                 className={`${buttonClasses} bg-[rgba(255,255,255,0.2)] text-white`}
               >
-                <span className="absolute top-0 left-1/2 transform -translate-x-1/2">+</span>
+                <span className="absolute top-0 left-1/2 transform -translate-x-1/2">
+                  +
+                </span>
               </button>
               <button
                 onClick={handleOpenModal}
                 className={`${buttonClasses} bg-[rgba(255,255,255,0.8)] text-black`}
               >
-                <span className="absolute top-0 left-1/2 transform -translate-x-1/2">+</span>
+                <span className="absolute top-0 left-1/2 transform -translate-x-1/2">
+                  +
+                </span>
               </button>
               <button
                 onClick={handleNextClick}
                 className={`${buttonClasses} bg-[rgba(255,255,255,0.2)] text-white`}
               >
-                <span className="absolute top-0 left-1/2 transform -translate-x-1/2">+</span>
+                <span className="absolute top-0 left-1/2 transform -translate-x-1/2">
+                  +
+                </span>
               </button>
             </div>
           </div>
         </div>
-        <hr className="zero:hidden desktop:block text-transparentWhite w-[100%]" />
-        <div className="flex justify-end px-10 py-4 desktop:flex zero:hidden ">
-          <button
-            className="uppercase text-white border border-transparentWhite py-1 px-2 font-jura font-bold"
-            onClick={handleNextClick}
-          >{`Scroll >> `}</button>
+        <div>
+          <hr className="zero:hidden desktop:block text-transparentWhite w-[100%]" />
+          <div className="flex justify-end px-10 py-4 desktop:flex zero:hidden ">
+            <button
+              className="uppercase text-white border border-transparentWhite py-1 px-2 font-jura font-bold"
+              onClick={handleNextClick}
+            >{`Scroll >> `}</button>
+          </div>
         </div>
       </div>
       {isModelOpen && <Modal onClose={handleCloseModal} />}

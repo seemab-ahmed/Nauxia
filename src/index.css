@@ -24,6 +24,12 @@
   position: relative;
 }
 
+.inner-glow {
+  /* box-shadow: inset 0 0 40px #fff; */
+  box-shadow: inset 0 0 15px #fff, inset 0 0 30px #fff; /* Inner white glow */
+  filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #fff); /* Outer white glow */
+}
+
 @media (min-width: 768px) {
   .bg-Bars::after {
     content: "";

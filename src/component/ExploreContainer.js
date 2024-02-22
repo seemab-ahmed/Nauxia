@@ -19,7 +19,7 @@ export default function ExploreContainer() {
   }, []);
 
   return (
-    <div className="relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] py-20">
+    <div className="bg-Bars relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] py-20">
       <div className="flex items-center flex-col m-auto gap-[40px] px-[20px]">
         <div className=" text-white justify-center font-medium font-jura text-[36px] tracking-144 ml-[1.2em] uppercase text-center">
           {"the"}

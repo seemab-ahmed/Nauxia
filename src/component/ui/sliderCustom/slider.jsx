@@ -3,7 +3,7 @@ import episode1Mobile from "../../../images/mobile-active-slide.png";
 import episode2 from "../../../assets/images/episode2.png";
 import episode3 from "../../../assets/images/episode3.png";
 import nauxialogo from "../../../images/Union.svg";
-import arrow from '../../../assets/warrow.png.png';
+import arrow from "../../../assets/warrow.png.png";
 import React, {
   useState,
   useEffect,
@@ -12,7 +12,6 @@ import React, {
   forwardRef,
 } from "react";
 import { Modal } from "../modal/modal";
-
 
 export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const sliderRef = useRef(null);
@@ -23,7 +22,6 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     // Function to update window width state
@@ -32,11 +30,11 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
     };
 
     // Event listener for window resize
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Remove event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []); // Empty dependency array means this effect runs only once after component mount
 
@@ -103,7 +101,7 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
       was not by chance.</p>`,
     },
   ];
-  
+
   const [clicked, setClicked] = useState(new Array(images.length).fill(false));
   const handleImageClick = (index) => {
     const updatedClicked = clicked.map((item, i) =>
@@ -206,7 +204,9 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
               className="snap-center flex justify-center shrink-0 relative w-full desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center  ${isReleased ? 'zero:pt-10': 'pt-0'} smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
+                className={`relative flex justify-center items-center  ${
+                  isReleased ? "zero:pt-10" : "pt-0"
+                } smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
                   isReleased && !isMobile
                     ? "border border-[rgba(255,255,255,0.2)] smd:p-6"
                     : "blur-"
@@ -229,14 +229,14 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
                   src={src}
                   alt={`Slide ${index}`}
                   className={`zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:shadow-none zero:border-b zero:border-white smd:border-0`}
-                  onClick={() =>
-                    window.innerWidth > 920 &&
-                    isReleased &&
-                    handleOpenModal(index)
-                  }
+                  onClick={() => isReleased && handleOpenModal(index)}
                 />
-                {isReleased && <div className="absolute top-[70px] shadow-white-glow zero:w-[372px] zero:h-[332px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:hidden"></div>}
-                <span className="moving-arrow bg-red absolute zero:bottom-0 zero:right-[20px] smd:bottom-[42px] smd:right-[50px] desktop:hidden"><img src={arrow} alt="arrow icon" width={24} height={24} /></span>
+                {isReleased && (
+                  <div className="absolute shadow-white-glow inner-glow zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:hidden z-50"></div>
+                )}
+                <span className="moving-arrow bg-red absolute zero:bottom-0 zero:right-[20px] smd:bottom-[42px] smd:right-[50px] desktop:hidden">
+                  <img src={arrow} alt="arrow icon" width={24} height={24} />
+                </span>
               </div>
             </div>
           ))}

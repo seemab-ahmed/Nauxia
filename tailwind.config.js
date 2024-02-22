@@ -54,7 +54,7 @@ module.exports = {
         custom:
           "0px -6.308411598205566px 37.850467681884766px 0px rgba(255, 255, 255, 0.4)",
         white: "0px 4px 30px 0px rgba(255, 255, 255, 0.9)",
-        'white-glow': '0 -30px 40px 15px rgba(255, 255, 255, 0.2);',
+        'white-glow': '0 0 40px 15px rgba(255, 255, 255, 0.5);',
         
       },
     },
