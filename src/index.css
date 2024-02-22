@@ -75,6 +75,11 @@
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* color: transparent; */
+  /* -webkit-text-fill-color: transparent; */
 }
 
 .hero_section-footer_gradient {
@@ -333,3 +338,22 @@
     ); /* Adjust the percentage as needed to control the distance the arrow moves */
   }
 }
+
+.fadeOutAnime {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 3s ease-out;
+  animation: fadeOut 3s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+
