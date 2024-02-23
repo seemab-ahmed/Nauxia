@@ -3,12 +3,12 @@ import { Backdrop } from "../backdrop/backdrop";
 export const Modal = ({ onClose }) => {
   return (
     <Backdrop onClose={onClose}>
-      <div className="rounded-lg bg-transparent p-[30px]  max-w-[1512px] h-[781px] w-full">
-        <div className="text-white flex flex-col items-center justify- h-full">
-          <button onClick={onClose} className="self-end pt-20 pr-20">
+      <div className="rounded-lg bg-transparent p-[30px] smd:max-w-[834px] desktop:max-w-[1512px] h-[781px] w-full">
+        <div className="text-white flex flex-col items-center desktop:justify-center h-full">
+          <button onClick={onClose} className="self-end">
             <img src={crossIcon} alt="cross icon" width={50} height={50} />
           </button>
-          <div className="flex flex-col justify-center items-center max-w-[721px] h-[347px] w-full mt-[118px] uppercase">
+          <div className="flex flex-col justify-center smd:max-w-[514px] desktop:max-w-[721px] h-full w-full uppercase">
             <h1 className="self-start text-[32px] font-hackathon border-white border-b border-opacity-20 pb-4 w-full tracking-[9px]">
               3 P 1 S O D 3 <span>&nbsp;&nbsp;&nbsp;/</span>
             </h1>

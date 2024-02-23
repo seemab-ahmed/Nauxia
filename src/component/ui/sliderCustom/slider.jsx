@@ -2,8 +2,8 @@ import episode1 from "../../../assets/images/episode1.png";
 import episode1Mobile from "../../../images/mobile-active-slide.png";
 import episode2 from "../../../assets/images/episode2.png";
 import episode3 from "../../../assets/images/episode3.png";
-import nauxialogo from "../../../images/Union.svg";
-import arrow from "../../../assets/warrow.png.png";
+import nauxialogo from "../../../assets/logo.png";
+// import arrow from "../../../assets/warrow.png.png";
 import React, {
   useState,
   useEffect,
@@ -24,22 +24,16 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
-    // Function to update window width state
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    // Event listener for window resize
     window.addEventListener("resize", handleResize);
 
-    // Remove event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []); // Empty dependency array means this effect runs only once after component mount
-
-  // Choose background image based on window width
-
+  }, []);
   const images = [
     {
       src: windowWidth > 768 ? episode1 : episode1Mobile,
@@ -184,6 +178,37 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
     setIsDragging(false);
   };
 
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    setIsDragging(true);
+    setStartX(touch.pageX - sliderRef.current.offsetLeft);
+    setScrollStartX(sliderRef.current.scrollLeft);
+  };
+  
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    const currentX = touch.pageX - sliderRef.current.offsetLeft;
+    const walk = (currentX - startX) * 2;
+    sliderRef.current.scrollLeft = scrollStartX - walk;
+  };
+  
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    const moveDistance = sliderRef.current.scrollLeft - scrollStartX;
+    const threshold = 100;
+  
+    if (moveDistance > threshold) {
+      setActiveImageIndex((prevIndex) => Math.min(prevIndex + 1, images.length - 1));
+    } else if (moveDistance < -threshold) {
+      setActiveImageIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    }
+  };
+
+  const handleWheelOnImage = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <div className="overflow-hidden desktop:ml-[152px] relative">
@@ -194,49 +219,53 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
           onMouseLeave={handleMouseUp}
           onMouseUp={handleMouseUp}
           onWheel={handleWheel}
-          className={`flex gap-5 overflow-x-hidden select-none ${
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          className={`flex gap-5 smd:px-40 desktop:px-0 overflow-x-hidden select-none ${
             isDragging ? "cursor-grabbing" : "cursor-pointer"
           } snap-x snap-mandatory`}
         >
           {images.map(({ src, isReleased }, index) => (
             <div
               key={index}
-              className="snap-center flex justify-center shrink-0 relative w-full desktop:w-auto  flex-none"
+              className="snap-center flex justify-center shrink-0 relative w-full  smd:w-auto desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center  ${
+                className={`relative flex justify-center items-center ${
                   isReleased ? "zero:pt-10" : "pt-0"
                 } smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
                   isReleased && !isMobile
-                    ? "border border-[rgba(255,255,255,0.2)] smd:p-6"
+                    ? "border border-[rgba(255,255,255,0.3)] smd:p-6"
                     : "blur-"
                 }`}
               >
                 {isReleased && (
                   <>
-                    <p className="absolute zero:top-12 zero:left-4 smd:top-[70px] smd:left-14 desktop:top-8 desktop:left-10 font-jura font-bold text-white text-2xl uppercase">
+                    <p className="absolute zero:top-12 zero:left-4 smd:top-[70px] smd:left-14 desktop:top-8 desktop:left-10 font-jura font-bold text-white text-2xl uppercase z-20 zero:hidden smd:block">
                       episode /
                     </p>
 
                     <img
                       src={nauxialogo}
                       alt="Logo"
-                      className="mr-2 h-[50px] absolute zero:bottom-2 zero:right-2 smd:bottom-12 smd:right-10 desktop:bottom-8 desktop:right-8"
+                      className="mr-2 w-[46px] h-12 absolute zero:bottom-2 zero:right-2 smd:bottom-[80px] smd:right-[60px] desktop:bottom-8 desktop:right-8 z-20 zero:hidden smd:block"
                     />
                   </>
                 )}
                 <img
                   src={src}
                   alt={`Slide ${index}`}
-                  className={`zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:shadow-none zero:border-b zero:border-white smd:border-0`}
+                  className={`relative z-10 zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:shadow-none zero:border-b zero:border-white smd:border-0`}
                   onClick={() => isReleased && handleOpenModal(index)}
+                  onWheel={handleWheelOnImage}
                 />
                 {isReleased && (
-                  <div className="absolute shadow-white-glow inner-glow zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:hidden z-50"></div>
+                  <div onWheel={handleWheelOnImage} className="absolute inner-glow zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:hidden z-0"></div>
                 )}
-                <span className="moving-arrow bg-red absolute zero:bottom-0 zero:right-[20px] smd:bottom-[42px] smd:right-[50px] desktop:hidden">
+                {/* <span className="moving-arrow bg-red absolute zero:bottom-0 zero:right-[20px] smd:bottom-[42px] smd:right-[50px] smd:hidden">
                   <img src={arrow} alt="arrow icon" width={24} height={24} />
-                </span>
+                </span> */}
               </div>
             </div>
           ))}

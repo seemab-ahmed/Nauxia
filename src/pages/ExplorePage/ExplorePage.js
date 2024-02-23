@@ -36,8 +36,8 @@ export default function ExplorePage() {
     <>
       <div className="bg-black relative bg-cover bg-center w-100 h-[100vh] overflow-auto md:overflow-hidden desktop:flex desktop:flex-col desktop:justify-between">
         <Navbar className={"bg-[#0B0B0B]"} />
-        <div className="desktop:flex desktop:justify-start items-center h-full w-full bg-black">
-          <div className="xs:flex-col zero:mt-[54px] smd:mt-[130px] desktop:mt-[100px] desktop:mb-[52px] flex justify-center w-full">
+        <div className="desktop:flex desktop:justify-start items-center desktop:h-full w-full bg-black">
+          <div className="xs:flex-col zero:mt-[84px] smd:mt-[130px] desktop:mt-[100px] desktop:mb-[52px] flex justify-center w-full">
             <CustomSlider ref={sliderRef} isMobile={mobile} />
 
             <div className="flex desktop:hidden gap-x-4 justify-center smd:pt-[39px] zero:pb-[8px]">

@@ -23,9 +23,9 @@ export default function Navbar({className}) {
 
       {/* Buttons */}
       <div className="flex font-jura">
-        <button className=" border border-transparentWhite hover:bg-blue-600 text-white font-semibold py-[3px] sm:py-1 px-3 mr-4 font-bold">
+        <a href="https://twitter.com/nauxia4060" className=" border border-transparentWhite hover:bg-blue-600 text-white font-semibold py-[3px] sm:py-1 px-3 mr-4 font-bold">
           TWITTER
-        </button>
+        </a>
         <button className="hidden sm:block border border-transparentWhite hover:bg-green-600 text-transparentWhite font-semibold py-1 px-3 line-through font-bold">
           DISCORD
         </button>
