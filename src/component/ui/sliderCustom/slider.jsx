@@ -257,7 +257,7 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
                   src={src}
                   alt={`Slide ${index}`}
                   className={`relative z-10 zero:w-[372px] zero:h-[372px] desktop:w-[362px] desktop:h-[475px] smd:w-[460px] smd:h-[595px] smd:shadow-none zero:border-b zero:border-white smd:border-0`}
-                  onClick={() => isReleased && handleOpenModal(index)}
+                  onClick={() => (window.innerWidth >= 768 && isReleased) && handleOpenModal(index)}
                   onWheel={handleWheelOnImage}
                 />
                 {isReleased && (

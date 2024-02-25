@@ -42,7 +42,7 @@ export default function ExploreContainer() {
               <p className="relative font-jura text-[24px] text-white text-center uppercase">
                 a group of intrepid humans embarked on a{" "}
                 <span className="inline-block">perilous journey</span>,
-                <div className="animation2 w-[229px] absolute zero:top-[140px] 350:top-[100px] 512:top-[60px] 922:top-[19px] left-0 flex flex-col">
+                <div className="animation2 w-[209px] absolute zero:top-[85px] 444:top-[50px] 488:top-[50px] 512:top-[60px] 805:top-[15px] 922:top-[15px] left-0 flex flex-col">
                   <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
                   <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
                   <span className="w-full h-[5px] bg-gradient"></span>
@@ -54,7 +54,7 @@ export default function ExploreContainer() {
               leaving behind the familiar comforts of Earth to land on an
               enigmatic and{" "}
               <span className="inline-block">uncharted planet.</span>
-              <div className="animation3 w-[229px] absolute zero:top-[225px] 330:top-[183px] 432:top-[140px] 525:top-[100px] 805:top-[60px] left-0 flex flex-col">
+              <div className="animation3 w-[209px] absolute zero:top-[155px] 391:top-[120px] 473:top-[85px] 713:top-[50px] 805:top-[50px] left-0 flex flex-col">
                 <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
                 <span className="w-full h-[5px] bg-gradient mb-[0.8px]"></span>
                 <span className="w-full h-[5px] bg-gradient"></span>
