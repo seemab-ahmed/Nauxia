@@ -36,11 +36,11 @@ export default function ExplorePage() {
     <>
       <div className="bg-black relative bg-cover bg-center w-100 h-[100vh] overflow-auto md:overflow-hidden desktop:flex desktop:flex-col desktop:justify-between">
         <Navbar className={"bg-[#0B0B0B]"} />
-        <div className="desktop:flex desktop:justify-start items-center desktop:h-full w-full bg-black">
-          <div className="xs:flex-col zero:mt-[84px] smd:mt-[130px] desktop:mt-[100px] desktop:mb-[52px] flex justify-center w-full">
+        <div className="smd:flex smd:justify-start items-center smd:h-full w-full bg-black">
+          <div className="xs:flex-col zero:mt-[84px] smd:mt-[0px] desktop:mt-[0px] desktop:mb-[0px] flex justify-center w-full">
             <CustomSlider ref={sliderRef} isMobile={mobile} />
 
-            <div className="flex desktop:hidden gap-x-4 justify-center smd:pt-[39px] zero:pb-[8px]">
+            <div className="flex smd:hidden gap-x-4 justify-center smd:pt-[39px] zero:pb-[8px]">
               <button
                 onClick={handleBackClick}
                 className={`${buttonClasses} bg-[rgba(255,255,255,0.2)] text-white`}
