@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
             <hr className=" text-transparentWhite " />
             <div className="flex gap-5 items-center ">
-              <img src={footersmLogo} alt="logo" />
+              <a href="https://twitter.com/nauxia4060"><img src={footersmLogo} alt="logo" /></a>
               <p className=" text-transparentWhite uppercase font-jura text-[14px] font-bold border-l-transparentWhite border-l pl-4">
                 Founded 2024
               </p>

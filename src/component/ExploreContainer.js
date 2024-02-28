@@ -65,6 +65,7 @@ export default function ExploreContainer() {
           <button
             className="relative z-20 shadow-custom bg-white py-1 px-3 text-black font-jura uppercase text-[25px] font-bold"
             onClick={handleClick}
+            disabled
           >
             {`Explore >>`}
           </button>
