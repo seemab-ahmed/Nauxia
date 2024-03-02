@@ -2,10 +2,12 @@ import nauxiaLogo from "../images/giflogo.gif";
 import whiteBorder from "../images/whiteBorder.svg";
 import { useNavigate } from "react-router-dom";
 import { adjustAnimationStopPoint } from "../utils/util";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ExploreContainer() {
   const navigate = useNavigate();
+
+  const disabled = useState(true)[0];
 
   const handleClick = () => {
     navigate("/explore");
@@ -63,11 +65,13 @@ export default function ExploreContainer() {
           </div>
           <img src={whiteBorder} alt="border" />
           <button
-            className="relative z-20 shadow-custom bg-white py-1 px-3 text-black font-jura uppercase text-[25px] font-bold"
+            className={`relative z-20 ${
+              !disabled ? "shadow-custom bg-white" : "line-through bg-[#b1b1b1]"
+            } hover-button  py-1 px-3 text-black font-jura uppercase text-[25px] font-bold`}
             onClick={handleClick}
-            disabled
+            disabled={disabled}
           >
-            {`Explore >>`}
+            {`Explore ${!disabled ? ">>" : ""}`}
           </button>
         </div>
       </div>

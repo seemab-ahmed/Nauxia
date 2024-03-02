@@ -10,7 +10,7 @@ export const HeroSectionMaincontent = () => {
           </div>
           <div className="flex flex-col gap-y-[22px] max-w-[488px] w-full uppercase leading-7 md:hidden">
             <p className="text-white font-hackathon text-3xl ">
-              an
+              a
               <br /> n3v3r- <br /> end1ng <br /> exp3ri3n2e!
             </p>
           </div>
