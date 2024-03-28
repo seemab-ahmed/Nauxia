@@ -14,20 +14,20 @@ import bgImage from "./images/heroIImg.svg";
 import bgImageipad from "./images/ipadhero.svg";
 import bgLines from "./images/film.svg";
 
-import loaderImage from './images/loadingScreen.png';
-import loaderLogo from './images/loaderLogo.png';
+import loaderImage from "./images/loadingScreen.png";
+import loaderLogo from "./images/loaderLogo.png";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [isEnter, setIsEnter] = useState(true);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   });
 
   const handleLoadingScreen = () => {
     setIsEnter(false);
-  }
+  };
 
   useEffect(() => {
     const urls = [bgImage, bgImageipad, bgLines];
@@ -82,32 +82,39 @@ function App() {
     const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
-        height: window.innerHeight
+        height: window.innerHeight,
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-
-  if(isEnter && windowSize.width >= 660 && window.location.pathname === '/'){
-    return <div className="relative w-screen h-screen" style={{backgroundImage: `url(${loaderImage})`}}>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center max-w-[375px] w-full">
-      <img
-          src={loaderLogo}
-          alt="gif logo"
-          width={24}
-          height={24}
-        />
-        <p className="font-jura text-white font-bold text-center mt-9 pb-9 border-b border-opacity-20">A JOURNEY THAT NEVER ENDS.<br/>
-AN EXPERIENCE THAT KEEPS ON GOING.</p>
-      <button onClick={handleLoadingScreen} className="bg-white max-w-[300px] h-[58px] w-full mt-[30px] shadow-buttonShadow font-jura font-bold text-xl">{'// ENTER NAUXIA //'}</button>
+  if (isEnter && windowSize.width >= 660 && window.location.pathname === "/") {
+    return (
+      <div
+        className="relative w-screen h-screen"
+        style={{ backgroundImage: `url(${loaderImage})` }}
+      >
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center max-w-[375px] w-full">
+          <img src={loaderLogo} alt="gif logo" width={24} height={24} />
+          <p className="font-jura text-white font-bold text-center mt-9 pb-9 border-b border-opacity-20">
+            A JOURNEY THAT NEVER ENDS.
+            <br />
+            AN EXPERIENCE THAT KEEPS ON GOING.
+          </p>
+          <button
+            onClick={handleLoadingScreen}
+            className="bg-white max-w-[300px] h-[58px] w-full mt-[30px] shadow-buttonShadow font-jura font-bold text-xl"
+          >
+            {"// ENTER NAUXIA //"}
+          </button>
+        </div>
       </div>
-    </div>
+    );
   }
   return (
     <Router>
