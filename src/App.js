@@ -17,6 +17,30 @@ import bgLines from "./images/film.svg";
 import loaderImage from "./images/loadingScreen.png";
 import loaderLogo from "./images/loaderLogo.png";
 
+
+// const AudioContext = window.AudioContext || window.webkitAudioContext;
+// const audioContext = new AudioContext();
+
+// const playBakcgroundAudio = async (url) => {
+//   try{
+//     if(audioContext.state === 'suspended'){
+//       await audioContext.resume();
+//     }
+
+//     const response = await fetch(url);
+//     const arrayBuffer = await response.arrayBuffer();
+//     const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+//     const source = audioContext.createBufferSource();
+//     source.buffer = audioBuffer;
+//     source.connect(audioContext.destination);
+//     source.start();
+
+//   }catch(error){
+//     console.error('Error palying', error)
+//   }
+// }
+
 function App() {
   const [, setLoading] = useState(true);
   const [isEnter, setIsEnter] = useState(true);
@@ -28,6 +52,9 @@ function App() {
   const handleLoadingScreen = () => {
     setIsEnter(false);
   };
+
+
+
 
   useEffect(() => {
     const urls = [bgImage, bgImageipad, bgLines];
@@ -51,7 +78,6 @@ function App() {
         console.error("Ërror laoding");
         setLoading(false);
       });
-
     // let loadedImages = 0;
     //  urls.forEach(url => {
     //   const img = new Image();

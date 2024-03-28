@@ -3,6 +3,7 @@ import Footer from "../../component/Footer";
 import ExploreContainer from "../../component/ExploreContainer";
 import { HeroSection } from "../../component/heroSection/hero-section";
 import { HeroSectionMobile } from "../../component/heroSection/hero-section-mobile";
+import FooterMobile from "../../component/footer-mobile";
 
 export default function HomePage() {
   return (
@@ -14,7 +15,12 @@ export default function HomePage() {
       <HeroSectionMobile />
       </div>
       <ExploreContainer />
+      <div className="zero:hidden sm:block">
       <Footer />
+      </div>
+      <div className="sm:hidden zero:block">
+        <FooterMobile />
+      </div>
     </div>
   );
 }
