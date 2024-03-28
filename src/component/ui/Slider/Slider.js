@@ -87,7 +87,6 @@ const Slider = forwardRef((props, ref) => {
       transition: "border-color 0.3s, box-shadow 0.3s",
       padding: "15px",
       ...(index === activeSlideIndex && {
-        // Apply styles for active slide
         border: "2px solid rgba(250, 250, 250, 0.2)",
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
         transition: "border-color 0.3s, box-shadow 0.3s, background-image 0.3s", 

@@ -6,7 +6,7 @@ import { HeroSectionMobile } from "../../component/heroSection/hero-section-mobi
 
 export default function HomePage() {
   return (
-    <div className="mx-auto">
+    <div className="mx-auto bounce-effect">
       <div className="hidden sm:block">
       <HeroSection />
       </div>

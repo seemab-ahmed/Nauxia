@@ -3,6 +3,7 @@ import episode1Mobile from "../../../images/mobile-active-slide.png";
 import episode2 from "../../../assets/images/episode2.png";
 import episode3 from "../../../assets/images/episode3.png";
 import nauxialogo from "../../../assets/logo.png";
+import comingSoon from '../../../images/coming_soon.png';
 // import arrow from "../../../assets/warrow.png.png";
 import React, {
   useState,
@@ -23,6 +24,8 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const isComingSoon = useState(true)[0];
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -208,6 +211,12 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const handleWheelOnImage = (e) => {
     e.preventDefault();
   };
+
+  if(isComingSoon && windowWidth < 768){
+    return <div className="flex justify-center pb-4">
+      <img src={comingSoon} alt="coming soon img" />
+    </div>
+  }
 
   return (
     <>
