@@ -1,11 +1,15 @@
 import nauxiaLogo from "../images/giflogo.gif";
 import whiteBorder from "../images/whiteBorder.svg";
 import { useNavigate } from "react-router-dom";
-import { adjustAnimationStopPoint } from "../utils/util";
-import { useEffect, useState } from "react";
+import { adjustAnimationStopPoint, useDeviceType } from "../utils/util";
+import { useEffect, useRef, useState } from "react";
+import { CustomSlider } from "./ui/sliderCustom/slider";
 
 export default function ExploreContainer() {
   const navigate = useNavigate();
+  
+  const sliderRef = useRef(null);
+  const { mobile } = useDeviceType();
 
   const disabled = useState(true)[0];
 
@@ -19,6 +23,15 @@ export default function ExploreContainer() {
 
     return () => window.removeEventListener("resize", adjustAnimationStopPoint);
   }, []);
+
+  
+  // const handleNextClick = () => {
+  //   sliderRef.current?.nextSlide();
+  // };
+  // const handleBackClick = () => {
+  //   sliderRef.current?.prevSlide();
+  // };
+
 
   return (
     <div className="bg-Bars relative bg-cover bg-[rgba(0,0,0,1)] desktop:h-[713px] zero:pb-[60px] smd:pb-[122px] py-20">
@@ -65,7 +78,7 @@ export default function ExploreContainer() {
           </div>
           <img src={whiteBorder} alt="border" />
           <button
-            className={`relative z-20 ${
+            className={`relative z-20 zero:hidden smd:block ${
               !disabled ? "shadow-custom bg-white" : "line-through bg-[#b1b1b1]"
             } hover-button  py-1 px-3 text-black font-jura uppercase text-[25px] font-bold`}
             onClick={handleClick}
@@ -73,6 +86,8 @@ export default function ExploreContainer() {
           >
             {`Explore ${!disabled ? ">>" : ""}`}
           </button>
+          <CustomSlider ref={sliderRef} isMobile={mobile} />
+
         </div>
       </div>
     </div>

@@ -17,6 +17,8 @@ export default function Navbar({className}) {
 
   const handleMic = () => {
     const audio = document.getElementById('audio');
+    // audio.muted = true;
+    // audio.pause();
     if (audio.paused) {
       audio.play();
       setIsAudioPlaying(true);
@@ -43,8 +45,8 @@ export default function Navbar({className}) {
 
       {/* Buttons */}
       <div className="flex font-jura">
-        <button onClick={handleMic} className="border border-transparentWhite hover:bg-blue-600 text-white font-semibold p-2.5 mr-4 font-bold">
-          <img src={isAudioPlaying ? micOnIcon : micOffIcon} alt="Mic Icon" />
+        <button onClick={handleMic} className="border border-transparentWhite hover:bg-blue-600 text-white font-semibold p-2.5 mr-4 font-bold zero:hidden smd:block">
+          <img src={isAudioPlaying ? micOffIcon : micOnIcon} alt="Mic Icon" />
         </button>
         <a href="https://twitter.com/nauxia4060" className=" border border-transparentWhite hover:bg-blue-600 text-white font-semibold py-[3px] sm:py-1 px-3 mr-4 font-bold">
           TWITTER

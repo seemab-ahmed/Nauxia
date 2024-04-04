@@ -23,6 +23,9 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 
+  const bounceEffectRef = useRef(null);
+  const [isBounceEffectVisible, setIsBounceEffectVisible] = useState(false);
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const isComingSoon = useState(true)[0];
@@ -187,7 +190,7 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
     setStartX(touch.pageX - sliderRef.current.offsetLeft);
     setScrollStartX(sliderRef.current.scrollLeft);
   };
-  
+
   const handleTouchMove = (e) => {
     if (!isDragging) return;
     const touch = e.touches[0];
@@ -195,12 +198,12 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
     const walk = (currentX - startX) * 2;
     sliderRef.current.scrollLeft = scrollStartX - walk;
   };
-  
+
   const handleTouchEnd = () => {
     setIsDragging(false);
     const moveDistance = sliderRef.current.scrollLeft - scrollStartX;
     const threshold = 100;
-  
+
     if (moveDistance > threshold) {
       setActiveImageIndex((prevIndex) => Math.min(prevIndex + 1, images.length - 1));
     } else if (moveDistance < -threshold) {
@@ -211,9 +214,31 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
   const handleWheelOnImage = (e) => {
     e.preventDefault();
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = bounceEffectRef.current;
+      if (!element) return;
 
-  if(isComingSoon && windowWidth < 768){
-    return <div className="flex justify-center pb-4">
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Check if the top and bottom of the element are visible in the viewport
+      const isVisible = rect.top >= 0 && rect.bottom <= windowHeight;
+      
+      setIsBounceEffectVisible(isVisible);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial visibility
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
+  if (isComingSoon && windowWidth < 768) {
+    return <div ref={bounceEffectRef} className={`flex justify-center pb-4 ${isBounceEffectVisible ? "bounce-effect-horizontal" : ""}`}>
       <img src={comingSoon} alt="coming soon img" />
     </div>
   }
@@ -231,9 +256,8 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`flex gap-5 smd:px-40 desktop:px-0 overflow-x-hidden select-none ${
-            isDragging ? "cursor-grabbing" : "cursor-pointer"
-          } snap-x snap-mandatory`}
+          className={`flex gap-5 smd:px-40 desktop:px-0 overflow-x-hidden select-none ${isDragging ? "cursor-grabbing" : "cursor-pointer"
+            } snap-x snap-mandatory`}
         >
           {images.map(({ src, isReleased }, index) => (
             <div
@@ -241,13 +265,11 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
               className="snap-center flex justify-center shrink-0 relative w-full  smd:w-auto desktop:w-auto  flex-none"
             >
               <div
-                className={`relative flex justify-center items-center ${
-                  isReleased ? "zero:pt-10" : "pt-0"
-                } smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${
-                  isReleased && !isMobile
+                className={`relative flex justify-center items-center ${isReleased ? "zero:pt-10" : "pt-0"
+                  } smd:w-[528px] smd:h-[687px] desktop:w-auto desktop:h-auto ${isReleased && !isMobile
                     ? "border border-[rgba(255,255,255,0.3)] smd:p-6"
                     : "blur-"
-                }`}
+                  }`}
               >
                 {isReleased && (
                   <>
@@ -286,9 +308,8 @@ export const CustomSlider = forwardRef(({ isMobile }, ref) => {
           {images.map(({ title, description }, index) => (
             <div
               key={index}
-              className={`w-full max-h-[276px] max-w-[372px] overflow-y-auto px-8 mt-[1px] hide-scrollbar ${
-                activeImageIndex === index ? "block" : "hidden"
-              }`}
+              className={`w-full max-h-[276px] max-w-[372px] overflow-y-auto px-8 mt-[1px] hide-scrollbar ${activeImageIndex === index ? "block" : "hidden"
+                }`}
             >
               <h1 className="font-bold font-jura tracking-[22px] leading-4 uppercase text-white my-[38px] text-center">
                 {title}
